@@ -23,7 +23,7 @@ class User < ApplicationRecord
 
 
   def ensure_session_token
-    self.session_token ||= User.generate_session_token
+    self.session_token ||= User.new_session_token
   end
 
   def is_password?(password)
@@ -36,15 +36,19 @@ class User < ApplicationRecord
   end
 
   def reset_session_token!
-    generate_unique_session_token
+    generate_session_token
     save!
     self.session_token
   end
 
-  def self.generate_session_token
-    self.session_token = SecureRandom.urlsafe_base64
+  def self.new_session_token
+    SecureRandom::urlsafe_base64
+  end
+
+  def generate_session_token
+    self.session_token = User.new_session_token
     while User.find_by(session_token: self.session_token)
-      self.session_token = SecureRandom.urlsafe_base64
+      self.session_token = User.new_session_token
     end
     self.session_token
   end
