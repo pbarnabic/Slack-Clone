@@ -191,6 +191,13 @@ a{
   text-decoration: underline;
 }
 
+#signin-instead{
+  margin-top: 8%;
+  margin-bottom: 40px;
+  font-weight: 400;
+  align-self: center;
+}
+
 .middle-of-header{
   color: #6d6f7b;
   font-size: 1rem;

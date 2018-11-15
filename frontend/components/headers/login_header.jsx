@@ -5,8 +5,30 @@ import { Link } from 'react-router-dom';
 
 const LogInHeader = ({ currentUser, logout }) => {
   const sessionLinks = () => (
-    <nav className="headerNav">
-        <Link to="/" className="header-link">slack</Link>
+    <nav className="login-signup header-class">
+        <div id="title-and-logo">
+          <img id="logo-image" src="https://banner2.kisspng.com/20180329/rte/kisspng-slack-logo-business-company-workflow-apps-5abd027d3f0c51.1266194415223363812583.jpg" />
+          <Link to="/" className="header-link">
+            <h1 id="title-of-site">slack</h1>
+          </Link>
+      </div>
+
+
+
+      <div className = "sign-in-get-started-header">
+        <div className="middle-of-header-sign-in">
+          <span className="middle-header-items-sign-in">Product</span>
+          <span className="middle-header-items-sign-in">Pricing</span>
+          <span className="middle-header-items-sign-in">Support</span>
+          <span className="middle-header-items-sign-in" id="bigger-mid-header-item">Create a new workspace</span>
+          <span className="middle-header-items-sign-in" id="bigger-mid-header-item">Find your workspace</span>
+        </div>
+        <Link to="/login">
+          <div id="sign-in-login-page-div">
+            <button id="sign-in-button-signin-page">Sign In</button>
+          </div>
+        </Link>
+      </div>
     </nav>
   );
 

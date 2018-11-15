@@ -15,3 +15,54 @@
 .headerNav{
   font-size: 1.75rem;
 }
+
+.middle-of-header-sign-in{
+  color: #6d6f7b;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.2;
+  font-family: sans-serif;
+  display: flex;
+  justify-content: space-around;
+}
+.middle-of-header-sign-in span:hover{
+  font-weight: 700;
+  color: black;
+}
+
+.middle-of-header-sign-in span{
+  font-size: 75%;
+  width: 4rem;
+}
+
+#bigger-mid-header-item{
+  width: 9rem;
+}
+
+#sign-in-login-page-div{
+
+}
+
+#sign-in-button-signin-page{
+  width: 5rem;
+  color: #6d6f7b;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.2;
+  font-family: sans-serif;
+  border-radius: .2rem;
+  padding-top: 4px;
+  opacity: .6;
+}
+
+#title-and-logo-signup{
+  display: flex;
+  align-items: baseline;
+  padding-bottom: 15px;
+}
+
+#title-and-logo-signup:hover{
+  display: flex;
+  align-items: baseline;
+  border-bottom: 1px solid black;
+}

@@ -41,7 +41,7 @@ class SignUpForm extends React.Component {
   render() {
     return (
       <div class="main-page">
-        <div class="sign-in-or-up sign-up-page">
+        <div className="sign-up-page">
           <div id="positioning-div">
           <form onSubmit={this.handleSubmit} >
             <span id="sign-up-title">Join Slack Clone</span>
