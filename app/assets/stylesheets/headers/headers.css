@@ -1,0 +1,17 @@
+.headerNav{
+  background-color: white;
+  margin: 0;
+}
+#title-of-site{
+  font-family: sans-serif;
+  color: #323648;
+  font-size: 1.75rem;
+  letter-spacing: -1px;
+  margin: 0;
+  font-weight: 700;
+  padding-right: 43px;
+  padding-top: 20px;
+}
+.headerNav{
+  font-size: 1.75rem;
+}

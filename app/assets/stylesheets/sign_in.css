@@ -1,0 +1,47 @@
+#sign-in-form{
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-top: 40px;
+}
+
+#sign-in-title{
+  font-size: 2rem;
+  line-height: 2.5rem;
+  letter-spacing: -1px;
+  font-weight: 700;
+  font-family: Slack-Lato,sans-serif;
+  margin: 0 0 1rem;
+}
+
+.log-in-forms{
+  display: flex;
+  justify-content: center;
+}
+
+.inputs-and-instructions{
+  display: flex;
+  flex-direction: column;
+  line-height: 8px;
+}
+.inputs-and-instructions input{
+  font-size: 1.25rem;
+  line-height: normal;
+  padding: .75rem;
+  border: 1px solid #919193;
+  border-radius: .25rem;
+}
+
+#log-in-instructions{
+  font-family: NotoSansJP,Slack-Lato,appleLogo,sans-serif;
+  font-size: 16px;
+  color: #2c2d30;
+  text-align: left;
+  line-height: 1;
+}
+#sign-in-button{
+  font-size: 20px;
+  font-family: sans-serif;
+  font-weight: 700;
+  background-color: #008952;
+  color: white;
+}

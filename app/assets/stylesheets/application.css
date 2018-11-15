@@ -14,6 +14,52 @@
  *= require_self
  */
 
+ html, body, div, span, applet, object, iframe,
+ h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+ a, abbr, acronym, address, big, cite, code,
+ del, dfn, em, img, ins, kbd, q, s, samp,
+ small, strike, strong, sub, sup, tt, var,
+ b, u, i, center,
+ dl, dt, dd, ol, ul, li,
+ fieldset, form, label, legend,
+ table, caption, tbody, tfoot, thead, tr, th, td,
+ article, aside, canvas, details, embed,
+ figure, figcaption, footer, header, hgroup,
+ menu, nav, output, ruby, section, summary,
+ time, mark, audio, video {
+ 	margin: 0;
+ 	padding: 0;
+ 	border: 0;
+ 	font-size: 100%;
+ 	font: inherit;
+ 	vertical-align: baseline;
+ }
+ /* HTML5 display-role reset for older browsers */
+ article, aside, details, figcaption, figure,
+ footer, header, hgroup, menu, nav, section {
+ 	display: block;
+ }
+ body {
+ 	line-height: 1;
+ }
+ ol, ul {
+ 	list-style: none;
+ }
+ blockquote, q {
+ 	quotes: none;
+ }
+ blockquote:before, blockquote:after,
+ q:before, q:after {
+ 	content: '';
+ 	content: none;
+ }
+ table {
+ 	border-collapse: collapse;
+ 	border-spacing: 0;
+ }
+
+
+
  .header-class{
    display: flex;
    justify-content: flex-end;
@@ -24,6 +70,10 @@
  }
 
 body{
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
   background-color: #f5f5f5;
   box-sizing: border-box;
 }
@@ -34,33 +84,43 @@ a{
   height: 42px;
   background-color: #3f46ad;
   color: #fff;
-  padding: .75rem 1rem;
+  padding-left: 0.6rem;
   border-radius: 4px;
   font-weight: 700;
   font-size: .875rem;
   font-family: sans-serif;
   margin-left: 34px;
+  padding-top: 0.7rem;
+  padding-bottom: 1.7rem;
+  padding-right: .6rem;
+  width: 8rem;
 }
 
 #get-started:hover{
   background-color:#1c299d;
 }
 
-#title-of-site{
-  font-family: sans-serif;
-  color: #323648;
-  font-size: 1.75rem;
-  letter-spacing: -1px;
+.sign-in-get-started-header{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
+
+
 #sign-in-text{
+  width: 8rem;
   color: #6d6f7b;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.2;
   font-family: sans-serif;
+
 }
 #sign-in-text:hover{
   color: #3f46ad;
+}
+#sign-in-homepage-div{
+  width: 4rem;
 }
 
 .sign-in-or-up{
@@ -95,48 +155,27 @@ a{
   list-style: none;
 }
 
-/* Sign Up Form  */
-#sign-in-title{
-  font-size: 2rem;
-  line-height: 2.5rem;
-  letter-spacing: -1px;
-  font-weight: 700;
-  font-family: Slack-Lato,sans-serif;
-  margin: 0 0 1rem;
+
+.inputs-on-signup{
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+.inputs-on-signup input{
+  width: 110%;
 }
 
-.log-in-forms{
+.main-page{
   display: flex;
   justify-content: center;
 }
 
-.inputs-and-instructions{
+
+#positioning-div{
   display: flex;
-  flex-direction: column;
-  line-height: 8px;
-}
-.inputs-and-instructions input{
-  font-size: 1.25rem;
-  line-height: normal;
-  padding: .75rem;
-  border: 1px solid #919193;
-  border-radius: .25rem;
+  justify-content: center;
 }
 
-#log-in-instructions{
-  font-family: NotoSansJP,Slack-Lato,appleLogo,sans-serif;
-  font-size: 16px;
-  color: #2c2d30;
-  text-align: left;
-  line-height: 1;
-}
-#sign-in-button{
-  font-size: 20px;
-  font-family: sans-serif;
-  font-weight: 700;
-  background-color: #008952;
-  color: white;
-}
 #signup-instead, #signin-instead{
   margin-top: 40px;
   margin-bottom: 40px;
@@ -151,68 +190,83 @@ a{
   color: #0576b9;
   text-decoration: underline;
 }
-#sign-in-form{
-  padding-left: 100px;
-  padding-right: 100px;
-  padding-top: 40px;
-}
 
-/* Sign Up Page  */
-
-
-
-
-.sign-up-page{
-  background-color: #f5f5f5;
-  font-family: NotoSansJP,Slack-Lato,appleLogo,sans-serif;
-  font-weight: 700;
-  font-size: 34px;
-  border: 0;
-  margin-top: 0px;
-}
-
-
-
-.sign-up-form-label{
-  font-weight: 700;
-  margin: 0 0 .25rem;
-  display: block;
+.middle-of-header{
+  color: #6d6f7b;
   font-size: 1rem;
-  line-height: 1.5rem;
-  text-align: left;
-  color: #2c2d30;
-}
-
-#sign-up-button{
-  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.2;
   font-family: sans-serif;
-  font-weight: 700;
-  background-color: #008952;
-  color: white;
-  width: 40%;
-  align-self: center;
-}
-
-#sign-up-title{
-  font-size: 2rem;
-  line-height: 2.5rem;
-  letter-spacing: -1px;
-  font-weight: 900;
-  font-family: Slack-Lato,sans-serif;
-  margin: 0 0 1rem;
-}
-
-
-#positioning-div{
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+}
+.middle-of-header span:hover{
+  font-weight: 700;
+  color: black;
 }
 
-.inputs-on-signup{
+.middle-of-header span{
+  padding-right: 25px;
+}
+.login-signup, .header-class{
+  display: flex;
+  flex-direction: row;
+}
+
+#title-and-logo{
+  display: flex;
+  align-items: baseline;
+}
+
+.homepage-main-section{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#home-right-half{
+  max-width: 50%;
+  padding-top: 9%;
   display: flex;
   flex-direction: column;
-  align-items: left;
+  align-items: flex-start;
 }
-.inputs-on-signup input{
-  width: 110%;
+
+
+#big-image{
+  height: auto;
+  width: auto;
+  max-width: 74%;
+  padding-top: 23%;
+  padding-left: 5%;
+  max-height: 100%;
+}
+#logo-image{
+  height: auto;
+  width: auto;
+  max-width: 6%;
+  max-height: 7%;
+  align-self: flex-end;
+
+}
+
+#WWH{
+  text-align: left;
+  font-family: Slack-Tiempos,"Times New Roman",Georgia,serif;
+  font-weight: 900;
+  line-height: .8;
+  letter-spacing: normal;
+  font-size: 4.8rem;
+  margin-bottom: 1rem;
+  padding-right: 13%;
+}
+
+#Description-paragraph{
+  color: #5b5e6d;
+  font-size: 1.3rem;
+  font-family: Slack-Averta,appleLogo,sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  letter-spacing: normal;
+
 }

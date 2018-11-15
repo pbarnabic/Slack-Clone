@@ -10,7 +10,7 @@ class LogInForm extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-  
+
   update(field) {
     return e => this.setState({
       [field]: e.currentTarget.value
@@ -37,33 +37,35 @@ class LogInForm extends React.Component {
 
   render() {
     return (
-      <div class="sign-in-or-up">
-        <form onSubmit={this.handleSubmit} id="sign-in-form" >
-          <p id="sign-in-title">Sign in to Slack Clone</p>
+      <div class="main-page">
+        <div class="sign-in-or-up">
+          <form onSubmit={this.handleSubmit} id="sign-in-form" >
+            <p id="sign-in-title">Sign in to Slack Clone</p>
 
-          {this.renderErrors()}
-          <div class="inputs-and-instructions">
-            <p id="log-in-instructions">Enter your <strong>email address</strong> and <strong>password</strong>.</p>
-            <br/>
-            <input type="text"
-              value={this.state.email_address}
-              onChange={this.update('email_address')}
-              placeholder="you@example.com"
-            />
+            {this.renderErrors()}
+            <div class="inputs-and-instructions">
+              <p id="log-in-instructions">Enter your <strong>email address</strong> and <strong>password</strong>.</p>
+              <br/>
+              <input type="text"
+                value={this.state.email_address}
+                onChange={this.update('email_address')}
+                placeholder="you@example.com"
+              />
 
-            <br/>
+              <br/>
 
-            <input type="password"
-              value={this.state.password}
-              onChange={this.update('password')}
-              placeholder="password"
-            />
+              <input type="password"
+                value={this.state.password}
+                onChange={this.update('password')}
+                placeholder="password"
+              />
 
-            <br/>
-            <input id="sign-in-button" type="submit" value="Sign In" />
-          </div>
-        </form>
-        <div id="signup-instead">{this.props.navLink}</div>
+              <br/>
+              <input id="sign-in-button" type="submit" value="Sign In" />
+            </div>
+          </form>
+          <div id="signup-instead">{this.props.navLink}</div>
+        </div>
       </div>
     );
   }
