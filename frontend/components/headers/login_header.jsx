@@ -7,7 +7,7 @@ const LogInHeader = ({ currentUser, logout }) => {
   const sessionLinks = () => (
     <nav className="login-signup header-class">
         <div id="title-and-logo">
-          <img id="logo-image" src={window.logoImage} />
+          <img id="logo-image" src={window.logo} />
           <Link to="/" className="header-link">
             <h1 id="title-of-site">slack</h1>
           </Link>
