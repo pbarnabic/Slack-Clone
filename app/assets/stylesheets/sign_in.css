@@ -38,7 +38,17 @@
   text-align: left;
   line-height: 1;
 }
-#sign-in-button{
+
+#demoUserButton{
+    font-size: 1.25rem;
+    line-height: normal;
+    padding: .75rem;
+    border: 1px solid #919193;
+    border-radius: .25rem;
+}
+
+
+.sign-in-button{
   font-size: 20px;
   font-family: sans-serif;
   font-weight: 700;

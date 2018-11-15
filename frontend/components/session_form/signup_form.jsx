@@ -20,6 +20,10 @@ class SignUpForm extends React.Component {
     });
   }
 
+  componentWillUnmount(){
+    this.props.clearErrors();
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
@@ -40,7 +44,7 @@ class SignUpForm extends React.Component {
 
   render() {
     return (
-      <div class="main-page">
+      <div className="main-page">
         <div className="sign-up-page">
           <div id="positioning-div">
           <form onSubmit={this.handleSubmit} >
@@ -48,9 +52,9 @@ class SignUpForm extends React.Component {
             <br/>
 
             {this.renderErrors()}
-            <div class="inputs-and-instructions signup-inputs">
-              <div class="inputs-on-signup">
-                <label class="sign-up-form-label">E-mail Address
+            <div className="inputs-and-instructions signup-inputs">
+              <div className="inputs-on-signup">
+                <label className="sign-up-form-label">E-mail Address
                   <br/>
                   <input type="text"
                     value={this.state.email_address}
@@ -59,7 +63,7 @@ class SignUpForm extends React.Component {
                   />
                 </label>
                 <br/>
-                <label class="sign-up-form-label">First Name
+                <label className="sign-up-form-label">First Name
                   <br/>
                   <input type="text"
                     value={this.state.first_name}
@@ -68,7 +72,7 @@ class SignUpForm extends React.Component {
                   />
                 </label>
                 <br/>
-                <label class="sign-up-form-label">Last Name
+                <label className="sign-up-form-label">Last Name
                   <br/>
                   <input type="text"
                     value={this.state.last_name}
@@ -77,7 +81,7 @@ class SignUpForm extends React.Component {
                   />
                 </label>
                 <br/>
-                <label class="sign-up-form-label">Display Name
+                <label className="sign-up-form-label">Display Name
                   <br/>
                   <input type="text"
                     value={this.state.username}
@@ -86,7 +90,7 @@ class SignUpForm extends React.Component {
                   />
                 </label>
                 <br/>
-                <label class="sign-up-form-label">Password
+                <label className="sign-up-form-label">Password
                   <br/>
                   <input type="password"
                     value={this.state.password}

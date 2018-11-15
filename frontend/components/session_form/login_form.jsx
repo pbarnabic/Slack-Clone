@@ -9,6 +9,11 @@ class LogInForm extends React.Component {
       password: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDemoUserSubmit = this.handleDemoUserSubmit.bind(this);
+  }
+
+  componentWillUnmount(){
+    this.props.clearErrors();
   }
 
   update(field) {
@@ -21,6 +26,10 @@ class LogInForm extends React.Component {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.processForm(user);
+  }
+  handleDemoUserSubmit(e) {
+    e.preventDefault();
+    this.props.demoLogin();
   }
 
   renderErrors() {
@@ -61,7 +70,9 @@ class LogInForm extends React.Component {
               />
 
               <br/>
-              <input id="sign-in-button" type="submit" value="Sign In" />
+              <input class="sign-in-button" type="submit" value="Sign In" />
+              <br/>
+              <button class = "sign-in-button" id="demoUserButton" onClick={this.handleDemoUserSubmit} value="Demo User">Demo User</button>
             </div>
           </form>
           <div id="signup-instead">{this.props.navLink}</div>

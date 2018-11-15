@@ -20,3 +20,11 @@ export const logout = () => (
     url: '/api/session'
   })
 );
+
+export const demoLogin = user => (
+  $.ajax({
+    method: 'POST',
+    url: '/api/session',
+    data: { user: {"email_address": "demoUser@slack.com", password: "password"} }
+  })
+);

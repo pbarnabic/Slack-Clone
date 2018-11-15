@@ -8,7 +8,7 @@ const Greeting = ({ currentUser, logout }) => {
     <div>
     <nav className="login-signup header-class">
         <div id="title-and-logo">
-          <img id="logo-image" src="https://banner2.kisspng.com/20180329/rte/kisspng-slack-logo-business-company-workflow-apps-5abd027d3f0c51.1266194415223363812583.jpg" />
+          <img id="logo-image" src={window.logoImage} />
           <Link to="/" className="header-link">
             <h1 id="title-of-site">slack</h1>
           </Link>
@@ -35,7 +35,7 @@ const Greeting = ({ currentUser, logout }) => {
 
     <section className="homepage-main-section">
       <div id="home-left-half">
-        <img id="big-image" src="https://a.slack-edge.com/9183b/img/slack_kit/illo-teamwork.png"/>
+        <img id="big-image" src={window.bigImage}/>
       </div>
       <div id="home-right-half">
         <br/>

@@ -3,8 +3,16 @@
   	window.currentUser = <%= render("api/users/user.json.jbuilder",
   		user: current_user).html_safe %>
   </script>
+
 <% end %>
 
+
+<script>
+ window.logoImage = "<%= asset_path('logoImage.jpg')%>"
+</script>
+<script>
+ window.bigImage = "<%= asset_path('bigImage')%>"
+</script>
 
 
 <main id="root"></main>
