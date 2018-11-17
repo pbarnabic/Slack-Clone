@@ -1,0 +1,117 @@
+.selected-channels{
+  height: 20px;
+  background-color: #4c9689;
+  padding-top: 6px;
+  color: white;
+  padding-bottom: 1px;
+  font-size: 16px;
+  font-family: NotoSansJP,Slack-Lato,appleLogo,sans-serif;
+  padding-left: 10px;
+}
+
+.non-selected-channels{
+  height: 23px;
+  padding-top: 5px;
+  color: #cac4c9;
+  padding-bottom: 2px;
+  font-size: 16px;
+  font-family: NotoSansJP,Slack-Lato,appleLogo,sans-serif;
+  padding-left: 10px;
+}
+
+.hash{
+  color: #9d919b;
+}
+
+.selected-hash{
+  color: #97c2ba;
+}
+
+#channels-title{
+  padding-left: 10px;
+  color:#cac4c9;
+  font-family: NotoSansJP,Slack-Lato,appleLogo,sans-serif;
+}
+#channels-title:hover{
+  color: white;
+}
+
+#channels-title-div{
+  padding-bottom: 4px;
+  padding-top: 4px;
+}
+
+
+.non-selected-channels:hover{
+  background-color: #3e313c;
+}
+
+#top-left{
+  display: flex;
+  flex-direction: column;
+}
+
+#top-left:hover{
+  background-color: #3e313c;
+}
+
+.top-left-top-row{
+  display: flex;
+  flex-grow: row;
+}
+.messages-page-slack-logo{
+  font-family: sans-serif;
+  color: white;
+  font-size: 1.5rem;
+  letter-spacing: -1px;
+  margin: 0;
+  font-weight: 700;
+  padding-right: 44%;
+  padding-left: 12px;
+  padding-top: 7px;
+}
+.notification-icon{
+  padding-top: 7%;
+}
+
+.notification-icon span{
+  font-size: 20px;
+}
+.message-page-top-left-username{
+    font-family: NotoSansJP,Slack-Lato,appleLogo,sans-serif;
+    margin-top: -2px;
+    color: #ab9ba9;
+    font-size: .875rem;
+    font-weight: 400;
+    line-height: 1.5;
+    padding-left: 2.2vw;
+}
+
+#top-right{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#left-side-top-left{
+  display: flex;
+  flex-direction: column;
+  max-width: 75vw;
+}
+#left-side-top-middle{
+  min-width: 0vw;
+}
+#left-side-top-right{
+  max-width: 25vw;
+  min-width:25vw;
+}
+
+#top-row-left-side-top-left{
+  font-family: NotoSansJP,Slack-Lato,appleLogo,sans-serif;
+  color: #2c2d30;
+  font-size: 19px;
+  font-weight: 700;
+  padding-top: 10px;
+  padding-left: 15px;
+}
+#bottom-row-left-side-top-left{}

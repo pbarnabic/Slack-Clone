@@ -3,12 +3,12 @@
 # Table name: users
 #
 #  id              :bigint(8)        not null, primary key
-#  username        :string           not null -X
-#  password_digest :string           not null -X
-#  email_address   :string           not null -X
-#  session_token   :string           not null -X
-#  first_name      :string           not null -X
-#  last_name       :string           not null -X
+#  username        :string           not null
+#  password_digest :string           not null
+#  email_address   :string           not null
+#  session_token   :string           not null
+#  first_name      :string           not null
+#  last_name       :string           not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #
@@ -20,6 +20,20 @@ class User < ApplicationRecord
   validates :username, :email_address, uniqueness: true
   validates :password, length: { minimum: 6 }, allow_nil: true
   after_initialize :ensure_session_token
+
+  has_many :admin_channels,
+    primary_key: :id,
+    foreign_key: :admin_id,
+    class_name: :Channel
+
+  has_many :channel_memberships,
+    primary_key: :id,
+    foreign_key: :user_id,
+    class_name: :ChannelMembership
+
+  has_many :channels,
+    through: :channel_memberships,
+    source: :channels
 
 
   def ensure_session_token
