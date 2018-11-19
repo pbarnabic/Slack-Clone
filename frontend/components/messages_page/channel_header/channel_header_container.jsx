@@ -7,9 +7,8 @@ import ChannelHeader from "./channel_header";
 const mapStateToProps = (state, ownProps) => {
 
   return{
-    channel: state.entities.channels[ownProps.channel_id] || {channel_name: ""},
-    channel_id: ownProps.channel_id,
-    channel_users: state.entities.channels[ownProps.channel_id] || {users:{length: "0"}}
+    channel: state.entities.channels[ownProps.channel_id] || {channel_name: "", userIds:{length: 0}},
+    channel_id: ownProps.channel_id
   };
 };
 

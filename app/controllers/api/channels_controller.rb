@@ -24,12 +24,12 @@ class Api::ChannelsController < ApplicationController
   end
 
   def index
-    @channels = current_user.channels
+    @channels = Channel.all
   end
 
   def fetchOne
     @channel = current_user.channels.last
-    render 'api/channels/fetchOne'
+    render :show
   end
 
   def fetchChannelUsers

@@ -2,23 +2,28 @@ import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
 
 
-export default class ChannelsModal extends React.Component{
+class ChannelsModal extends React.Component{
 
-  componentDidMount(){
-    this.props.fetchForeignChannels();
+  joinChannel(id){
+    debugger
+    this.props.createChannelMembership(id).then(()=>
+    {
+      this.props.changeToHide();}
+    );
+    this.props.history.push(`/messages/${id}`);
 
   }
 
-
   render(){
     const channelList = this.props.channels.map(channel => {
+      if(channel.userIds.includes(this.props.currentUser.id) === false){
+        return(
+          <li key={channel.id} className="channels-modal-list-item" onClick={() => this.joinChannel(channel.id)}>
+            {channel.channel_name}
+          </li>
 
-      return(<Link to={`/messages/${channel.id}`}>
-        <li key={channel.id} className="channels-modal-list-item" onClick={() => this.props.changeToHide()}>
-          {channel.channel_name}
-        </li>
-
-      </Link>);
+      );
+    };
     });
 
     return(
@@ -44,3 +49,5 @@ export default class ChannelsModal extends React.Component{
 
 
 }
+
+export default withRouter(ChannelsModal);

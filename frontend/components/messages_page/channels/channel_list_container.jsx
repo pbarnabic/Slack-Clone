@@ -6,9 +6,12 @@ import {hideModal, showModal} from '../../../actions/modal_actions';
 
 const mapStateToProps = (state, ownProps) => {
   let channels = Object.values(state.entities.channels);
+  
   return{
+    currentUser: state.entities.users[state.session.id] || {id: -1},
     channels: channels || [{id: "", channel_name: ""}],
-    channel: state.entities.channels[ownProps.url] || {id: "", channel_name: ""}
+    channel: state.entities.channels[ownProps.url] || {id: "", channel_name: ""},
+
   };
 };
 

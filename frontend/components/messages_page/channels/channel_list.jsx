@@ -3,10 +3,6 @@ import { withRouter, Link } from 'react-router-dom';
 
 class ChannelList extends React.Component{
 
-  componentDidMount(){
-    this.props.fetchChannels();
-  }
-
   changeToShow(){
     this.props.changeToShow();
   }
@@ -17,19 +13,23 @@ class ChannelList extends React.Component{
     var channel_name = "";
 
     const channelList = this.props.channels.map((channel,idx) => {
-      if(channel.id != this.props.channel.id){
-        channel_name = this.props.channel.channel_name;
-      return(
+        if(channel.userIds.includes(this.props.currentUser.id) && channel.id != this.props.channel.id){
+          return(
+            <Link key={channel.id} to={`/messages/${channel.id}`} >
+              <li className="listed-channels non-selected-channels" >
+                <span className="hash">#</span> {channel.channel_name}
+              </li>
+            </Link>
+          );
+        }else if(channel.userIds.includes(this.props.currentUser.id)){
+            return(
+               <li key={channel.id} className="listed-channels selected-channels">
+                 <span className="selected-hash">#</span>{channel.channel_name}
+               </li>
+            );
+          };
 
-        <Link to={`/messages/${channel.id}`} > <li className="listed-channels non-selected-channels" key={idx}> <span className="hash">#</span> {channel.channel_name}</li> </Link>
-      );
-    }else{
 
-      index = [idx];
-      return(
-         <li key={channel.id} className="listed-channels selected-channels"> <span className="selected-hash">#</span>  {channel.channel_name}</li>
-      );
-    };
     });
 
 

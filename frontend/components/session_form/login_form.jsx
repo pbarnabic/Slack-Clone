@@ -36,7 +36,7 @@ class LogInForm extends React.Component {
     return(
       <ul>
         {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`} class="errors">
+          <li key={`error-${i}`} className="errors">
             {error}
           </li>
         ))}
@@ -46,13 +46,13 @@ class LogInForm extends React.Component {
 
   render() {
     return (
-      <div class="main-page">
-        <div class="sign-in-or-up">
+      <div className="main-page">
+        <div className="sign-in-or-up">
           <form onSubmit={this.handleSubmit} id="sign-in-form" >
             <p id="sign-in-title">Sign in to Slack Clone</p>
 
             {this.renderErrors()}
-            <div class="inputs-and-instructions">
+            <div className="inputs-and-instructions">
               <p id="log-in-instructions">Enter your <strong>email address</strong> and <strong>password</strong>.</p>
               <br/>
               <input type="text"
@@ -70,9 +70,9 @@ class LogInForm extends React.Component {
               />
 
               <br/>
-              <input class="sign-in-button" type="submit" value="Sign In" />
+              <input className="sign-in-button" type="submit" value="Sign In" />
               <br/>
-              <button class = "sign-in-button" id="demoUserButton" onClick={this.handleDemoUserSubmit} value="Demo User">Demo User</button>
+              <button className= "sign-in-button" id="demoUserButton" onClick={this.handleDemoUserSubmit} value="Demo User">Demo User</button>
             </div>
           </form>
           <div id="signup-instead">{this.props.navLink}</div>
