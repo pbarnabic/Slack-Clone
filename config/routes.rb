@@ -7,6 +7,11 @@ Rails.application.routes.draw do
     resources :channels do
       collection do
         get 'fetchOne', :to => 'channels#fetchOne', :as => :fetchOne
+        get 'fetchForeignChannels', :to => 'channels#fetchForeignChannels', :as => :fetchForeignChannels
+
+      end
+      member do
+        get 'fetchChannelUsers', :to => 'channels#fetchChannelUsers', :as => :fetchChannelUsers
       end
     end
     resources :channel_memberships, only:[:create]

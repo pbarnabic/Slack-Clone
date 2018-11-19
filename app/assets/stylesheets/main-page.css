@@ -2,12 +2,13 @@
   .main-page-outermost-div{
     display: flex;
     flex-direction: row;
+    background-color: white;
   }
 
 
   .top{
 
-    height: 10vh;
+    height: 60px;
     min-height: 60px;
     background-color: white;
   }
@@ -17,7 +18,7 @@
 
   .main-left{
     height: 100%;
-    width: 17vw;
+    width: 221px;
     height: 100vh;
     background-color: #4D394B;
     min-width: 184px;
@@ -37,6 +38,7 @@
 
 #channel-section{
   max-height: 54%;
+  padding-top: 30px;
 }
 #direct-message-section{
   max-height: 27%;
@@ -78,6 +80,8 @@ input{
 #top-right{
   border: 1px solid rgba(145,145,147,.4);
   color: #2c2d30;
+  width: calc(100vw - 221px);
+
 }
 
 #plus-sign{

@@ -25,3 +25,25 @@ export const fetchDefaultChannel = () => (
     url:"/api/channels/fetchOne"
   })
 );
+
+export const fetchChannelUsers = (id) => (
+  $.ajax({
+    method: "get",
+    url: `/api/channels/${id}/fetchChannelUsers`
+  })
+)
+
+export const fetchForeignChannels = () => (
+  $.ajax({
+    method: "GET",
+    url: `/api/channels/fetchForeignChannels`
+  })
+);
+
+export const createChannelMembership = (channel) =>(
+  $.ajax({
+    method: "POST",
+    url: "/api/channel_memberships",
+    data: {channel}
+  })
+)

@@ -1,6 +1,9 @@
 class Api::ChannelMembershipsController < ApplicationController
   def create
-    @channel_membership = ChannelMembership.save(user_id: current_user.id, channel_id: @channel.id)
+    
+    @channel = Channel.find(params[:channel][:channel_id])
+    @channel_membership = ChannelMembership.new(user_id: current_user.id, channel_id: @channel.id)
+
     if @channel_membership.save
       render "api/channels/show"
     else

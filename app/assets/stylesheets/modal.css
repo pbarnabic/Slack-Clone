@@ -1,0 +1,64 @@
+
+
+.hidden-modal{
+  display: none;
+}
+
+.visible-modal{
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  background-color: white;
+  width: 100%;
+}
+
+.outermost-channels-modal-div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+.channels-modal-close-X{
+  color: #77787a;
+  font-size: 2rem;
+  padding-top: 15vh;
+  padding-left: 65vw;
+}
+
+.channels-modal-list-of-channels{
+
+}
+
+.channels-modal-list-of-channels ul{
+  padding: 5px;
+  padding-top: 75px;
+  background: white;
+  width: 300px;
+  height: 50vh;
+  overflow-y: scroll;
+}
+
+.header-modal-list-of-channels span{
+  color: #2c2d30;
+  font-size: 34px;
+  line-height: 41px;
+  font-weight: 900;
+  letter-spacing: -1px;
+  font-family: NotoSansJP,Slack-Lato,appleLogo,sans-serif;
+
+}
+
+.channels-modal-list-of-channels ul li{
+  height: 41px;
+  text-decoration: none;
+  color: #3e313c;
+  font-family: NotoSansJP,Slack-Lato,appleLogo,sans-serif;
+  border-top: 1px solid #e8e8e8;
+  padding-top: 30px;
+}

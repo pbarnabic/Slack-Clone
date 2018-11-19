@@ -32,6 +32,17 @@ class Api::ChannelsController < ApplicationController
     render 'api/channels/fetchOne'
   end
 
+  def fetchChannelUsers
+    @channel = Channel.find(params[:id])
+    @memberships = @channel.users
+    render 'api/channels/fetchChannelUsers'
+  end
+
+  def fetchForeignChannels
+    @channels = Channel.all - current_user.channels
+    render 'api/channels/index'
+  end
+
   private
 
   def channel_params
