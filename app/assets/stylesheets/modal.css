@@ -39,8 +39,8 @@
   padding: 5px;
   padding-top: 75px;
   background: white;
-  width: 300px;
-  height: 50vh;
+  width: 385px;
+  height: 30vh;
   overflow-y: scroll;
 }
 
@@ -51,6 +51,7 @@
   font-weight: 900;
   letter-spacing: -1px;
   font-family: NotoSansJP,Slack-Lato,appleLogo,sans-serif;
+  
 
 }
 
@@ -61,4 +62,14 @@
   font-family: NotoSansJP,Slack-Lato,appleLogo,sans-serif;
   border-top: 1px solid #e8e8e8;
   padding-top: 30px;
+}
+
+#new-channel-title-input{
+  width: 30vw;
+  font-size: 1.25rem;
+  line-height: normal;
+  padding: .75rem;
+  border: 1px solid #919193;
+  border-radius: .25rem;
+  margin-top: 30px;
 }

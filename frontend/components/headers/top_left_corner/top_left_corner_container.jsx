@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import React from 'react';
 import TopLeftCorner from "./top_left_corner";
-
+import {logout} from '../../../actions/session_actions'
 
 const mapStateToProps = (state, ownProps) => {
   return{
@@ -9,4 +9,10 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-export default connect(mapStateToProps,null)(TopLeftCorner);
+const mapDispatchToProps = dispatch => {
+  return{
+    logout: () => dispatch(logout())
+  }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(TopLeftCorner);
