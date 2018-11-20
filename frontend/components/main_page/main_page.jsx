@@ -31,6 +31,7 @@ class MainPage extends React.Component{
             <ChannelsModalContainer show={this.props.showChannels}/>
           </div>
           <div id="direct-message-section">
+            Direct Messages
           </div>
         </div>
       </div>
@@ -40,13 +41,7 @@ class MainPage extends React.Component{
           <div id="message-history" className="new-user-join-channel-button">
             <button id="join-a-channel" onClick={() => this.props.showModal() }>JOIN A CHANNEL! </button>
           </div>
-          <div id="chat-div">
-            <div className="chat-sub" id="plus-sign">+</div>
-            <div><input placeholder="Message" id="chat-input"/></div>
-            <div className="chat-sub">@</div>
-            <div className="chat-sub">☺</div>
-
-          </div>
+          
         </div>
       </div>
 

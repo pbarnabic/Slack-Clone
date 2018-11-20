@@ -34,6 +34,7 @@ class MessagePage extends React.Component{
             <ChannelListContainer url={channel_id} />
           </div>
           <div id="direct-message-section">
+            Direct Messages
           </div>
         </div>
       </div>
@@ -46,11 +47,11 @@ class MessagePage extends React.Component{
             <div id="left-side-top-middle">
 
             </div>
-            <div id="left-side-top-right">          
+            <div id="left-side-top-right">
             </div>
         </div>
         <div className="bottom" id="right-bottom">
-          <div id="message-history">random</div>
+          <div id="message-history"></div>
           <div id="chat-div">
             <div className="chat-sub" id="plus-sign">+</div>
             <div><input placeholder="Message" id="chat-input"/></div>

@@ -125,7 +125,7 @@ box-sizing: border-box;
   font-size: 19px;
   font-weight: 700;
   padding-top: 30px;
-  padding-left: 15px;
+  padding-left: 3px;
 }
 #join-a-channel{
   background-color: #008a56;
@@ -169,6 +169,7 @@ box-sizing: border-box;
 
 .new-user-join-channel-button{
   padding-top: 300px;
+  padding-left: 32vw;
 }
 
 #bottom-row-left-side-top-left{}
