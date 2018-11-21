@@ -2,8 +2,6 @@ class Api::ChannelsController < ApplicationController
   before_action :require_logged_in
 
   def create
-    #Channel.new(channel_params)
-    #Channel.admin_id = currentUser.id
 
     @channel = Channel.new(admin_id: current_user.id, channel_name: params[:channel][:channel_name])
     if @channel.save
@@ -41,6 +39,12 @@ class Api::ChannelsController < ApplicationController
   def fetchForeignChannels
     @channels = Channel.all - current_user.channels
     render 'api/channels/index'
+  end
+
+  def channelMessages
+    @channel = current_user.channels.find(params[:id])
+    @messages = @channel.messages
+    render 'api/messages/index'
   end
 
   private

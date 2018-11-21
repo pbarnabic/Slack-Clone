@@ -1,6 +1,7 @@
 import {SHOW_MODAL, HIDE_MODAL} from '../actions/modal_actions';
 
 const modalsReducer = (state = {show: "hidden-modal"}, action) => {
+  
   Object.freeze(state);
   switch(action.type){
     case SHOW_MODAL:

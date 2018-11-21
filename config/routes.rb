@@ -12,10 +12,14 @@ Rails.application.routes.draw do
       end
       member do
         get 'fetchChannelUsers', :to => 'channels#fetchChannelUsers', :as => :fetchChannelUsers
+        get 'channelMessages', :to => 'channels#channelMessages', :as => :channelMessages
       end
     end
     resources :channel_memberships, only:[:create]
-  end
+    resources :conversations, only: [:index,:create, :show]
+    resources :messages, only: [:create]
 
-root "static_pages#root"
+  end
+  mount ActionCable.server => '/cable'
+  root "static_pages#root"
 end

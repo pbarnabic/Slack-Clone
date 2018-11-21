@@ -15,6 +15,7 @@ import SignUpHeaderContainer from './components/headers/signup_header_container'
 import MainPageContainer from './components/main_page/main_page_container';
 import MessagePageContainer from './components/messages_page/messages_page_container';
 import {AuthRoute} from './util/route_util';
+import {API_WS_ROOT} from '../constants/constants.js';
 const App = () => (
   <div>
 

@@ -13,7 +13,7 @@ class ChannelsModal extends React.Component{
 
 
   joinChannel(id){
-    debugger
+    
     this.props.createChannelMembership(id).then(()=>
     {
       this.props.changeToHide();}

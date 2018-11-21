@@ -27,4 +27,10 @@ class Channel < ApplicationRecord
     foreign_key: :admin_id,
     class_name: :User
 
+  has_many :messages,
+    primary_key: :id,
+    foreign_key: :channel_id,
+    class_name: :Message
+
+
 end
