@@ -17,7 +17,7 @@ class ChannelList extends React.Component{
           return(
             <Link key={channel.id} to={`/messages/${channel.id}`} >
               <li className="listed-channels non-selected-channels" >
-                <span className="hash">#</span> {channel.channel_name}
+                <span className="hash">#</span>{channel.channel_name}
               </li>
             </Link>
           );

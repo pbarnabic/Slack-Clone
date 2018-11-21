@@ -47,12 +47,12 @@
   color: #cac4c9;
   font-family: NotoSansJP,Slack-Lato,appleLogo,sans-serif;
 }
-}
+
 
 #right-bottom{
   display: flex;
   flex-direction: column;
-  align-items: center;
+
 }
 
 #chat-div{
@@ -62,7 +62,9 @@
   border-radius: .3rem;
   min-height: 46px;
   height: 40px;
+  position: fixed;
   margin-top: 80vh;
+  margin-left: 50px;
 }
 
 
@@ -80,9 +82,7 @@
 input{
   border: none;
 }
-#message-history{
 
-}
 #top-right{
   border: 1px solid rgba(145,145,147,.4);
   color: #2c2d30;

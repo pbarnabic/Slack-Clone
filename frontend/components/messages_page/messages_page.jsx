@@ -14,19 +14,20 @@ class MessagePage extends React.Component{
     this.handleSubmit = this.handleSubmit.bind(this);
     this.state = {valueOfInput: ""};
     this.handleChange = this.handleChange.bind(this);
+    
   }
 
   componentDidMount(){
     this.props.fetchChannels();
     this.props.changeToHide();
-    this.props.fetchMessages(this.props.match.params.id);
-    this.props.fetchChannelUsers(this.props.match.params.id);
+    this.props.fetchChannelInfo(this.props.match.params.id)
     this.channel_id = this.props.match.params.id;
   }
 
   componentDidUpdate(prevProps,prevState){
     if (prevProps.match.params.id != this.props.match.params.id){
-      this.props.fetchChannelUsers(this.props.match.params.id).then( () => this.props.fetchMessages(this.props.match.params.id));
+      this.props.fetchChannelInfo(this.props.match.params.id);
+
     };
   }
 
@@ -45,6 +46,7 @@ class MessagePage extends React.Component{
       valueOfInput: e.target.value
     });
   }
+
 
 
   handleSubmit(e){
@@ -92,6 +94,8 @@ class MessagePage extends React.Component{
         <div className="bottom" id="right-bottom">
           <div id="message-history">
             <MessagesContainer channel_id={channel_id}/>
+
+
           </div>
           <div id="chat-div">
             <div className="chat-sub" id="plus-sign">+</div>

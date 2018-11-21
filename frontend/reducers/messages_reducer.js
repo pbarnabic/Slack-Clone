@@ -5,11 +5,15 @@ import {
   RECEIVE_MESSAGE
 } from '../actions/conversation_actions';
 
+import { RECEIVE_CHANNEL_INFO } from '../actions/channel_actions';
+
 export default (state={}, action) => {
 
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_MESSAGES:
+      return action.messages;
+    case RECEIVE_CHANNEL_INFO:
       return action.messages;
     case RECEIVE_MESSAGE:
       let random = merge({},state,{[action.message.id]: action.message});

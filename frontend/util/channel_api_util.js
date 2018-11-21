@@ -31,7 +31,7 @@ export const fetchChannelUsers = (id) => (
     method: "get",
     url: `/api/channels/${id}/fetchChannelUsers`
   })
-)
+);
 
 export const fetchForeignChannels = () => (
   $.ajax({
@@ -46,4 +46,11 @@ export const createChannelMembership = (channel) =>(
     url: "/api/channel_memberships",
     data: {channel}
   })
-)
+);
+
+export const fetchChannelInfo = (id) => (
+  $.ajax({
+    method : "get",
+    url: `/api/channels/${id}/fetchChannelInfo`
+  })
+);

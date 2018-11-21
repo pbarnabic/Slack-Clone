@@ -1,4 +1,4 @@
-import {fetchChannel, fetchChannels, createChannel, fetchChannelUsers } from "../../actions/channel_actions";
+import {fetchChannel, fetchChannels, createChannel, fetchChannelUsers, fetchChannelInfo } from "../../actions/channel_actions";
 import { connect } from 'react-redux';
 import React from 'react';
 import MessagePage from "./messages_page";
@@ -23,8 +23,7 @@ const mapDispatchToProps = dispatch => {
     changeToHide: () => dispatch(hideModal()),
     changeToShow: () => dispatch(showModal()),
     createMessage: (message) => dispatch(createMessage(message)),
-    fetchMessages: (id) => dispatch(fetchMessages(id)),
-    fetchChannelUsers: (id) => dispatch(fetchChannelUsers(id))
+    fetchChannelInfo: (id) => dispatch(fetchChannelInfo(id))
   };
 };
 

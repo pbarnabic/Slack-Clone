@@ -47,6 +47,13 @@ class Api::ChannelsController < ApplicationController
     render 'api/messages/index'
   end
 
+  def fetchChannelInfo
+    @channel = current_user.channels.find(params[:id])
+    @messages = @channel.messages
+    @memberships = @channel.users
+    render 'api/channels/info'
+  end
+
   private
 
   def channel_params
