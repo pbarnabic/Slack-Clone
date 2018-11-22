@@ -18,6 +18,12 @@ Rails.application.routes.draw do
     resources :channel_memberships, only:[:create]
     resources :conversations, only: [:index,:create, :show]
     resources :messages, only: [:create]
+    resources :direct_messages do
+      collection do
+        # get 'fetchOne', :to => 'channels#fetchOne', :as => :fetchOne
+        get 'dm_candidates', :to => 'direct_messages#dm_candidates', :as => :dm_candidates
+      end
+    end
 
   end
   mount ActionCable.server => '/cable'

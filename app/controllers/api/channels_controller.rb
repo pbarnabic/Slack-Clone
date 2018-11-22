@@ -4,6 +4,7 @@ class Api::ChannelsController < ApplicationController
   def create
 
     @channel = Channel.new(admin_id: current_user.id, channel_name: params[:channel][:channel_name])
+    @channel.is_direct_message = false
     if @channel.save
       @channel_membership = ChannelMembership.new(user_id: current_user.id, channel_id: @channel.id)
       if @channel_membership.save
@@ -22,7 +23,7 @@ class Api::ChannelsController < ApplicationController
   end
 
   def index
-    @channels = Channel.all
+    @channels = Channel.all.select{|channel| channel.is_direct_message == false}
   end
 
   def fetchOne
