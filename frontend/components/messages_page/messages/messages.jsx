@@ -10,6 +10,15 @@ class Messages extends React.Component{
 
   componentDidMount(){
     this.messages = this.props.messages;
+    const el = document.getElementById("bottom-of-messages-list");
+    el.scrollIntoView();
+  }
+
+  componentDidUpdate(prevProps){
+    if(prevProps.messages != this.props.messages){
+      const el = document.getElementById("bottom-of-messages-list");
+      el.scrollIntoView();
+    }
   }
 
 
@@ -54,7 +63,7 @@ class Messages extends React.Component{
         <ActionCable
           key={this.props.channel.id}
           channel = {{channel: 'MessagesChannel',conversation: this.props.channel.id}}
-          onReceived ={res => this.props.receiveMessage(res)}
+          onReceived ={res => {debugger;this.props.receiveMessage(res)}}
         />
         <div className="orderedMessagesList">
           <ul>

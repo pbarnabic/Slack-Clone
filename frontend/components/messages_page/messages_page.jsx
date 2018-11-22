@@ -14,7 +14,7 @@ class MessagePage extends React.Component{
     this.handleSubmit = this.handleSubmit.bind(this);
     this.state = {valueOfInput: ""};
     this.handleChange = this.handleChange.bind(this);
-    
+
   }
 
   componentDidMount(){
@@ -37,10 +37,10 @@ class MessagePage extends React.Component{
   }
   changeToHide(){
     this.props.changeToHide();
+    this.props.fetchChannelInfo(this.props.match.params.id);
   }
 
   handleChange(e){
-    debugger
     console.log(e.target.value);
     this.setState({
       valueOfInput: e.target.value

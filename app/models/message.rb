@@ -16,4 +16,10 @@ class Message < ApplicationRecord
     primary_key: :id,
     foreign_key: :channel_id,
     class_name: :Channel
+
+  belongs_to :author,
+    primary_key: :id,
+    foreign_key: :user_id,
+    class_name: :User
+
 end

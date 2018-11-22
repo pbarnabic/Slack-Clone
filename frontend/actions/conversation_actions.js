@@ -9,10 +9,11 @@ export const receiveMessages = messages => ({
 });
 
 export const receiveMessage = response => {
-  const {message} = response;
+  debugger
   return ({
   type: RECEIVE_MESSAGE,
-  message: message
+  message: JSON.parse(response).message,
+  user: JSON.parse(response).user
 });
 }
 

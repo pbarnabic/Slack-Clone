@@ -14,7 +14,8 @@ export default (state={}, action) => {
     case RECEIVE_MESSAGES:
       return action.messages;
     case RECEIVE_CHANNEL_INFO:
-      return action.messages;
+      let retVal = action.messages || {};
+      return retVal;
     case RECEIVE_MESSAGE:
       let random = merge({},state,{[action.message.id]: action.message});
       return random;

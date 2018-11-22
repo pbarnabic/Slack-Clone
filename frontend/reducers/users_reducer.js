@@ -2,6 +2,7 @@ import merge from 'lodash/merge';
 
 import { RECEIVE_CURRENT_USER } from '../actions/session_actions';
 import {RECEIVE_CHANNEL_USERS, RECEIVE_CHANNEL_INFO} from '../actions/channel_actions';
+import {RECEIVE_MESSAGE} from '../actions/conversation_actions';
 
 
 const usersReducer = (state = {}, action) => {
@@ -10,6 +11,9 @@ const usersReducer = (state = {}, action) => {
   switch(action.type) {
     case RECEIVE_CURRENT_USER:
       return merge({}, state, { [action.currentUser.id]: action.currentUser });
+    case RECEIVE_MESSAGE:
+      debugger
+      return merge({}, state, { [action.user.id]: action.user });
     case RECEIVE_CHANNEL_USERS:
       return action.users;
     case RECEIVE_CHANNEL_INFO:
