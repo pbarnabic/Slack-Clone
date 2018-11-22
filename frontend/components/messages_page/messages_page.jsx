@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
 import TopLeftCornerContainer from '../headers/top_left_corner/top_left_corner_container';
 import ChannelListContainer from './channels/channel_list_container';
+import DMsListContainer from './dms/dms_list_container';
 import ChannelsModalContainer from './modal/channels_modal_container';
 import ChannelHeaderContainer from './channel_header/channel_header_container';
 import MessagesContainer from './messages/messages_container';
@@ -19,9 +20,12 @@ class MessagePage extends React.Component{
 
   componentDidMount(){
     this.props.fetchChannels();
+    this.props.fetchDMs();
+    this.props.fetchDMCandidates();
     this.props.changeToHide();
     this.props.fetchChannelInfo(this.props.match.params.id)
     this.channel_id = this.props.match.params.id;
+
   }
 
   componentDidUpdate(prevProps,prevState){
@@ -74,8 +78,8 @@ class MessagePage extends React.Component{
           <div id="channel-section">
             <ChannelListContainer url={channel_id} />
           </div>
-          <div id="direct-message-section">
-            Direct Messages
+          <div id="channel-section">
+            <DMsListContainer url={channel_id} />
           </div>
         </div>
       </div>

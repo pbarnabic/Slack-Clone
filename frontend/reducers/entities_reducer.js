@@ -10,5 +10,6 @@ export default combineReducers({
   users,
   channels,
   messages,
+  directMessages,
   dmUsers
 });

@@ -4,7 +4,7 @@ export const RECEIVE_DIRECT_MESSAGE = "RECEIVE_DIRECT_MESSAGE";
 export const RECEIVE_DIRECT_MESSAGES = "RECEIVE_DIRECT_MESSAGES";
 export const RECEIVE_DM_CANDIDATES = 'RECEIVE_DM_CANDIDATES';
 
-export const recieveDMCandidates = (users) => ({
+export const receiveDMCandidates = (users) => ({
     type: RECEIVE_DM_CANDIDATES,
     users: users
 });
@@ -27,7 +27,7 @@ export const receiveDM = (dm) => ({
 
 export const fetchDMCandidates = () => dispatch => (
   DirectMessageAPIUtil.fetchDMCandidates().then(dmCandidates => (
-    dispatch(receiveDMCandidate(dmCandidates))
+    dispatch(receiveDMCandidates(dmCandidates))
   ))
 );
 

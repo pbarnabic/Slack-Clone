@@ -4,6 +4,7 @@ import React from 'react';
 import MessagePage from "./messages_page";
 import {hideModal, showModal} from '../../actions/modal_actions';
 import {fetchMessages, createMessage} from '../../actions/conversation_actions';
+import { fetchDMs, fetchDMCandidates } from "../../actions/direct_message_actions";
 const mapStateToProps = (state, ownProps) => {
   let channels = Object.values(state.entities.channels)
   const users = Object.values(state.entities.users);
@@ -20,6 +21,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => {
   return{
     fetchChannels: () => dispatch(fetchChannels()),
+    fetchDMs: () => dispatch(fetchDMs()),
+    fetchDMCandidates: () => dispatch(fetchDMCandidates()),
     changeToHide: () => dispatch(hideModal()),
     changeToShow: () => dispatch(showModal()),
     createMessage: (message) => dispatch(createMessage(message)),
