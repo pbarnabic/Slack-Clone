@@ -10,8 +10,8 @@ Channel.destroy_all
 User.destroy_all
 Message.destroy_all
 
-demoUser1 = User.create(username: "demoUser", password: "password", email_address: "demoUser@slack.com", first_name: "Demo", last_name: "User")
-demoUser2 = User.create(username: "demoUser2", password: "password", email_address: "demoUser2@slack.com", first_name: "Demo", last_name: "User")
+demoUser1 = User.create(username: "DemoUser", password: "password", email_address: "demoUser@slack.com", first_name: "Demo", last_name: "User")
+demoUser2 = User.create(username: "Paul B.", password: "password", email_address: "demoUser2@slack.com", first_name: "Demo", last_name: "User")
 
 channel1 = Channel.create(channel_name: "App Academy", admin_id: demoUser1.id, is_direct_message: false);
 channel2 = Channel.create(channel_name: "Flatiron Bootcamp", admin_id: demoUser1.id, is_direct_message: false);
