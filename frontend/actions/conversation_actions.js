@@ -9,7 +9,7 @@ export const receiveMessages = messages => ({
 });
 
 export const receiveMessage = response => {
-  debugger
+  
   return ({
   type: RECEIVE_MESSAGE,
   message: JSON.parse(response).message,

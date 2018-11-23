@@ -6,7 +6,7 @@ import { receiveMessage, createMessage, fetchMessages} from '../../../actions/co
 const mapStateToProps = (state,ownProps) => {
   const messages = Object.values(state.entities.messages);
   return{
-    channel: state.entities.channels[ownProps.channel_id] || {id: -1},
+    channel: state.entities.channels[ownProps.channel_id] || state.entities.directMessages[ownProps.channel_id] || {id: -1},
     messages: messages || [],
     users: state.entities.users || [{username:""}]
   };

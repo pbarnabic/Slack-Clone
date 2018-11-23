@@ -9,7 +9,7 @@ const dmsReducer = (state ={}, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_DIRECT_MESSAGE:
-      let newChannel = {[action.dm.id]: action.dm};
+      let newChannel = {[action.dms.id]: action.dms};
       return merge({},state,newChannel);
     case RECEIVE_DIRECT_MESSAGES:
       return action.dms;

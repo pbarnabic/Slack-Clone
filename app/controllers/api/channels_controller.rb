@@ -19,7 +19,7 @@ class Api::ChannelsController < ApplicationController
   end
 
   def show
-    @channel = current_user.channels.find(params[:id])
+    @channel = Channel.find(params[:id])
   end
 
   def index
@@ -43,13 +43,13 @@ class Api::ChannelsController < ApplicationController
   end
 
   def channelMessages
-    @channel = current_user.channels.find(params[:id])
+    @channel = Channel.find(params[:id])
     @messages = @channel.messages
     render 'api/messages/index'
   end
 
   def fetchChannelInfo
-    @channel = current_user.channels.find(params[:id])
+    @channel = Channel.find(params[:id])
     @messages = @channel.messages
     @memberships = @channel.users
     render 'api/channels/info'

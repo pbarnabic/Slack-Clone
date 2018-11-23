@@ -5,7 +5,6 @@ class Messages extends React.Component{
 
   constructor(props){
     super(props);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount(){
@@ -16,19 +15,11 @@ class Messages extends React.Component{
 
   componentDidUpdate(prevProps){
     if(prevProps.messages != this.props.messages){
+      console.log("Component Did Update - Messages")
       const el = document.getElementById("bottom-of-messages-list");
       el.scrollIntoView();
     }
   }
-
-
-
-  handleSubmit(e){
-
-    this.props.createMessage({body: e.target.value, channel_id: this.props.channel.id});
-  }
-
-
 
   render(){
 
@@ -63,7 +54,7 @@ class Messages extends React.Component{
         <ActionCable
           key={this.props.channel.id}
           channel = {{channel: 'MessagesChannel',conversation: this.props.channel.id}}
-          onReceived ={res => {debugger;this.props.receiveMessage(res)}}
+          onReceived ={res => {this.props.receiveMessage(res)}}
         />
         <div className="orderedMessagesList">
           <ul>

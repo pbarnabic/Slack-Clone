@@ -16,6 +16,7 @@
   height: 100%;
   background-color: white;
   width: 100%;
+  height: 100vh;
 }
 
 .outermost-channels-modal-div{
@@ -70,4 +71,35 @@
   border: 1px solid #919193;
   border-radius: .25rem;
   margin-top: 30px;
+}
+
+
+.hidden-dm-modal{
+  display: none;
+}
+
+.visible-dm-modal{
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  background-color: white;
+  width: 100%;
+  height: 100vh;
+}
+
+.selected-users-input{
+  list-style: none;
+  display: inline;
+  padding: 6px;
+  background-color: #2d9ee0;
+  color: white;
+  font-weight: 700;
+  border-radius: .2rem;
+
 }

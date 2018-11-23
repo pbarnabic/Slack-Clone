@@ -8,11 +8,12 @@ class Api::DirectMessagesController < ApplicationController
 
   def create
     #Channel.new(admin_id: current_user.id, channel_name: params[:channel][:channel_name])
-    @channel = Channel.new(admin_id: current_user.id, channel_name: "");
-    @channel.is_direct_message = false;
+    @users = params[:dm][:channel][:user_ids].map{|id| User.find(id)}
+    channel_name = @users[0,3].map{|user| user.username}.join(",")
+    @channel = Channel.new(admin_id: current_user.id, channel_name: channel_name)
+    @channel.is_direct_message = true
 
     if @channel.save
-      @users = params[:channel][:user_ids].map{|id| User.find(id)}
       @users.each do |user|
         channel_membership = ChannelMembership.new(user_id: user.id, channel_id: @channel.id)
         if channel_membership.save

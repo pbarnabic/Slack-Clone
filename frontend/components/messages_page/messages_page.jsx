@@ -4,6 +4,7 @@ import TopLeftCornerContainer from '../headers/top_left_corner/top_left_corner_c
 import ChannelListContainer from './channels/channel_list_container';
 import DMsListContainer from './dms/dms_list_container';
 import ChannelsModalContainer from './modal/channels_modal_container';
+import DMsModalContainer from './modal/dms_modal_container';
 import ChannelHeaderContainer from './channel_header/channel_header_container';
 import MessagesContainer from './messages/messages_container';
 import {ActionCable} from 'react-actioncable-provider';
@@ -23,15 +24,17 @@ class MessagePage extends React.Component{
     this.props.fetchDMs();
     this.props.fetchDMCandidates();
     this.props.changeToHide();
+    this.props.changeDMToHide();
     this.props.fetchChannelInfo(this.props.match.params.id)
     this.channel_id = this.props.match.params.id;
-
+    console.log(this.channel_id);
   }
 
   componentDidUpdate(prevProps,prevState){
     if (prevProps.match.params.id != this.props.match.params.id){
       this.props.fetchChannelInfo(this.props.match.params.id);
-
+      this.channel_id = this.props.match.params.id;
+      console.log("hey" + this.channel_id);
     };
   }
 
@@ -45,7 +48,6 @@ class MessagePage extends React.Component{
   }
 
   handleChange(e){
-    console.log(e.target.value);
     this.setState({
       valueOfInput: e.target.value
     });
@@ -70,6 +72,7 @@ class MessagePage extends React.Component{
           onReceived={res => this.props.receiveConversation(res)}
         />
       <ChannelsModalContainer show={this.props.showChannels}/>
+      <DMsModalContainer show={this.props.showDMModal}/>
       <div className="main-left">
 
         <TopLeftCornerContainer />
