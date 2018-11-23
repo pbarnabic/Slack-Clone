@@ -10,19 +10,20 @@ Channel.destroy_all
 User.destroy_all
 Message.destroy_all
 
-demoUser1 = User.create(username: "demoUser", password: "password", email_address: "demoUser@slack.com", first_name: "Demo", last_name: "User")
+demoUser1 = User.create(username: "DemoUser", password: "password", email_address: "demoUser@slack.com", first_name: "Demo", last_name: "User")
+demoUser2 = User.create(username: "Paul B.", password: "password", email_address: "demoUser2@slack.com", first_name: "Demo", last_name: "User")
 
-channel1 = Channel.create(channel_name: "App Academy", admin_id: demoUser1.id)
-channel2 = Channel.create(channel_name: "Flatiron Bootcamp", admin_id: demoUser1.id)
-channel3 = Channel.create(channel_name: "Flatiron Bootcamp1", admin_id: demoUser1.id)
-channel4 = Channel.create(channel_name: "Flatiron Bootcamp2", admin_id: demoUser1.id)
-channel5 = Channel.create(channel_name: "Flatiron Bootcamp3", admin_id: demoUser1.id)
-channel6 = Channel.create(channel_name: "Flatiron Bootcamp4", admin_id: demoUser1.id)
-channel7 = Channel.create(channel_name: "Flatiron Bootcamp5", admin_id: demoUser1.id)
-channel8 = Channel.create(channel_name: "Flatiron Bootcamp6", admin_id: demoUser1.id)
-channel9 = Channel.create(channel_name: "Flatiron Bootcamp7", admin_id: demoUser1.id)
-channel10 = Channel.create(channel_name: "Flatiron Bootcamp8", admin_id: demoUser1.id)
-channel11 = Channel.create(channel_name: "Flatiron Bootcamp9", admin_id: demoUser1.id)
+channel1 = Channel.create(channel_name: "App Academy", admin_id: demoUser1.id, is_direct_message: false);
+channel2 = Channel.create(channel_name: "Flatiron Bootcamp", admin_id: demoUser1.id, is_direct_message: false);
+channel3 = Channel.create(channel_name: "Flatiron Bootcamp1", admin_id: demoUser1.id, is_direct_message: false);
+channel4 = Channel.create(channel_name: "Flatiron Bootcamp2", admin_id: demoUser1.id, is_direct_message: false);
+channel5 = Channel.create(channel_name: "Flatiron Bootcamp3", admin_id: demoUser1.id, is_direct_message: false);
+channel6 = Channel.create(channel_name: "Flatiron Bootcamp4", admin_id: demoUser1.id, is_direct_message: false);
+channel7 = Channel.create(channel_name: "Flatiron Bootcamp5", admin_id: demoUser1.id, is_direct_message: false);
+channel8 = Channel.create(channel_name: "Flatiron Bootcamp6", admin_id: demoUser1.id, is_direct_message: false);
+channel9 = Channel.create(channel_name: "Flatiron Bootcamp7", admin_id: demoUser1.id, is_direct_message: false);
+channel10 = Channel.create(channel_name: "Flatiron Bootcamp8", admin_id: demoUser1.id, is_direct_message: false);
+channel11 = Channel.create(channel_name: "Flatiron Bootcamp9", admin_id: demoUser1.id, is_direct_message: false);
 
 channelMembership1 = ChannelMembership.create(user_id: demoUser1.id, channel_id: channel1.id)
 channelMembership2 = ChannelMembership.create(user_id: demoUser1.id, channel_id: channel2.id)
@@ -47,3 +48,10 @@ message8 = Message.create(user_id: demoUser1.id, channel_id: channel8.id, body: 
 message9 = Message.create(user_id: demoUser1.id, channel_id: channel9.id, body: "Hello 9")
 message10 = Message.create(user_id: demoUser1.id, channel_id: channel10.id, body: "Hello 10")
 message11 = Message.create(user_id: demoUser1.id, channel_id: channel11.id, body: "Hello 11")
+
+dm1 = Channel.create(channel_name: "DM1", admin_id: demoUser1.id, is_direct_message: true);
+dm2 = Channel.create(channel_name: "DM2", admin_id: demoUser1.id, is_direct_message: true);
+
+
+dmMembership1 = ChannelMembership.create(user_id: demoUser1.id, channel_id: dm1.id)
+dmMembership2 = ChannelMembership.create(user_id: demoUser2.id, channel_id: dm1.id)

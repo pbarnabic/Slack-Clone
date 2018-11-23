@@ -2,14 +2,16 @@ import {fetchChannel, fetchChannels, createChannel, fetchChannelUsers, fetchChan
 import { connect } from 'react-redux';
 import React from 'react';
 import MessagePage from "./messages_page";
-import {hideModal, showModal} from '../../actions/modal_actions';
+import {hideModal, showModal, showDMModal, hideDMModal} from '../../actions/modal_actions';
 import {fetchMessages, createMessage} from '../../actions/conversation_actions';
+import { fetchDMs, fetchDMCandidates } from "../../actions/direct_message_actions";
 const mapStateToProps = (state, ownProps) => {
   let channels = Object.values(state.entities.channels)
   const users = Object.values(state.entities.users);
   return{
 
     showChannels: state.modals.show,
+    showDMModal: state.modals.showDM,
     currentUser: state.entities.users[state.session.id],
     channels: channels || {name: "", id: -1},
     channel: state.entities.channels[ownProps.match.params.id] || {conversation: {id:-1}},
@@ -20,8 +22,12 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => {
   return{
     fetchChannels: () => dispatch(fetchChannels()),
+    fetchDMs: () => dispatch(fetchDMs()),
+    fetchDMCandidates: () => dispatch(fetchDMCandidates()),
     changeToHide: () => dispatch(hideModal()),
     changeToShow: () => dispatch(showModal()),
+    changeDMToShow: () => dispatch(showDMModal()),
+    changeDMToHide: () => dispatch(hideDMModal()),
     createMessage: (message) => dispatch(createMessage(message)),
     fetchChannelInfo: (id) => dispatch(fetchChannelInfo(id))
   };

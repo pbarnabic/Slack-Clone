@@ -19,7 +19,7 @@ export const clearChannelErrors = () => ({
 export const receiveChannel = channel => ({
   type: RECEIVE_CHANNEL,
   channel: channel
-})
+});
 export const receiveChannels = channels => ({
   type: RECEIVE_CHANNELS,
   channels: channels
