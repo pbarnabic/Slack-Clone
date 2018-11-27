@@ -25,6 +25,8 @@ class MessagePage extends React.Component{
     this.props.fetchDMCandidates();
     this.props.changeToHide();
     this.props.changeDMToHide();
+    console.log("changeToHide");
+    console.log(this.props.match.params.id);
     this.props.fetchChannelInfo(this.props.match.params.id)
     this.channel_id = this.props.match.params.id;
     console.log(this.channel_id);
@@ -32,6 +34,8 @@ class MessagePage extends React.Component{
 
   componentDidUpdate(prevProps,prevState){
     if (prevProps.match.params.id != this.props.match.params.id){
+      console.log("componentDidUpdate");
+      console.log(this.props.match.params.id);
       this.props.fetchChannelInfo(this.props.match.params.id);
       this.channel_id = this.props.match.params.id;
       console.log("hey" + this.channel_id);
@@ -45,6 +49,8 @@ class MessagePage extends React.Component{
   changeToHide(){
     this.props.changeToHide();
     this.props.fetchChannelInfo(this.props.match.params.id);
+    console.log("changeToHide");
+    console.log(this.props.match.params.id);
   }
 
   handleChange(e){

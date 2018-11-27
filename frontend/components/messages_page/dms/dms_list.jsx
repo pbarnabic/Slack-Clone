@@ -30,6 +30,7 @@ class DMsList extends React.Component{
             </Link>
           );
         }else if(channel.userIds.includes(this.props.currentUser.id)){
+          console.log("DMSList ElseIf channel.id")
             return(
                <li key={channel.id} className="listed-channels selected-channels">
                  <span className="selected-hash">○ </span>{channel.channel_name}
