@@ -5,7 +5,7 @@ import LogInHeader from './login_header';
 
 const mapStateToProps = ({ session, entities: { users } }) => {
   return {
-    currentUser: users[session.id]
+    currentUser: users[session.id] || {username: "",id:''}
   };
 };
 
