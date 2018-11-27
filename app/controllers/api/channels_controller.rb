@@ -36,6 +36,9 @@ class Api::ChannelsController < ApplicationController
     @channel = Channel.find(params[:id])
     @messages = @channel.messages
     @memberships = @channel.users
+    unless @memberships.include?(User.find(current_user.id))
+      @memberships.append(User.find(current_user.id))
+    end
     render 'api/channels/info'
   end
 
