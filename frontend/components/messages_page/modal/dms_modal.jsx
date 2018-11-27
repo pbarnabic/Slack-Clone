@@ -49,7 +49,8 @@ class DMsModal extends React.Component{
   }
 
   render(){
-    console.log(this.state.selected)
+    console.log("this.state.selected");
+    console.log(this.state.selected);
     const dmCandidates = this.state.searchResults.map(user => {
         return(
           <li key={user.id} className="channels-modal-list-item" onClick={this.aggregateDMUsers(user)}>

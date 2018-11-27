@@ -13,7 +13,15 @@ class DMsList extends React.Component{
     var channel_name = "";
 
     const channelList = this.props.channels.map((channel,idx) => {
+        console.log("this.props.channel.id");
+        console.log(this.props.channel.id);
+        console.log("channel.id:");
+        console.log(channel.id);
         if(channel.userIds.includes(this.props.currentUser.id) && channel.id != this.props.channel.id){
+          console.log("channel.id:");
+          console.log(channel.id);
+          console.log("this.props.channel.id");
+          console.log(this.props.channel.id);
           return(
             <Link key={channel.id} to={`/messages/${channel.id}`} >
               <li className="listed-channels non-selected-channels" >
