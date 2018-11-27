@@ -62,7 +62,7 @@ class DMsModal extends React.Component{
           </li>
       );
     });
-
+    
     const selectedUsers = this.state.selected.map(user => {
       console.log("id" + user.id);
       console.log("username" + user.username);

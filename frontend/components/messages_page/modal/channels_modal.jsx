@@ -36,6 +36,8 @@ class ChannelsModal extends React.Component{
     console.log(this.props.channels);
     const channelList = this.props.channels.map(channel => {
       if(channel.userIds.includes(this.props.currentUser.id) === false){
+        console.log("channel.id from ChannelsModal")
+        console.log(channel.id);
         return(
           <li key={channel.id} className="channels-modal-list-item" onClick={() => this.joinChannel(channel.id)}>
             {channel.channel_name}
