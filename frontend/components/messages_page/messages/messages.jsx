@@ -15,7 +15,6 @@ class Messages extends React.Component{
 
   componentDidUpdate(prevProps){
     if(prevProps.messages != this.props.messages){
-      console.log("Component Did Update - Messages")
       const el = document.getElementById("bottom-of-messages-list");
       el.scrollIntoView();
     }

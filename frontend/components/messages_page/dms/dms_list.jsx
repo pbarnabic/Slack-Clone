@@ -13,15 +13,9 @@ class DMsList extends React.Component{
     var channel_name = "";
 
     const channelList = this.props.channels.map((channel,idx) => {
-        console.log("dms this.props.channel.id");
-        console.log(this.props.channel.id);
-        console.log("dms channel.id:");
-        console.log(channel.id);
+
         if(channel.userIds.includes(this.props.currentUser.id) && channel.id != this.props.channel.id){
-          console.log("dms channel.id:");
-          console.log(channel.id);
-          console.log("dms this.props.channel.id");
-          console.log(this.props.channel.id);
+
           return(
             <Link key={channel.id} to={`/messages/${channel.id}`} >
               <li className="listed-channels non-selected-channels" >
@@ -30,7 +24,7 @@ class DMsList extends React.Component{
             </Link>
           );
         }else if(channel.userIds.includes(this.props.currentUser.id)){
-          console.log("DMSList ElseIf channel.id")
+          
             return(
                <li key={channel.id} className="listed-channels selected-channels">
                  <span className="selected-hash">○ </span>{channel.channel_name}

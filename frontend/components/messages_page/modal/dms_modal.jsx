@@ -20,12 +20,12 @@ class DMsModal extends React.Component{
 
   aggregateDMUsers(user){
     return () => {
-    console.log(this.state.users);
+
     let newArr = this.state.users;
     newArr.push(user.id);
     let sel = this.state.selected;
     sel.push(user);
-    console.log(this.state.users);
+
     this.setState({inputValue: "", users: newArr, selected: sel});
   };
   }
@@ -33,10 +33,9 @@ class DMsModal extends React.Component{
   handleInput(e){
     e.preventDefault();
     this.setState({inputValue: e.target.value}, () => {
-      console.log(this.state.inputValue);
       let searchResults = this.state.searchResults.filter( user => user.username.includes(this.state.inputValue));
 
-      this.setState({searchResults: searchResults}, () => (console.log(this.state.searchResults)));
+      this.setState({searchResults: searchResults}, () => (console.log("")));
 
     });
   }
@@ -49,23 +48,17 @@ class DMsModal extends React.Component{
   }
 
   render(){
-    console.log("this.state.selected");
-    console.log(this.state.selected);
-    console.log("this.state.searchResults");
-    console.log(this.state.searchResults);
+
     const dmCandidates = this.state.searchResults.map(user => {
-      console.log("user");
-      console.log(user);
+
         return(
           <li key={user.id} className="channels-modal-list-item" onClick={this.aggregateDMUsers(user)}>
             {user.username}
           </li>
       );
     });
-    
+
     const selectedUsers = this.state.selected.map(user => {
-      console.log("id" + user.id);
-      console.log("username" + user.username);
       return(
 
         <li key={user.id} className="selected-users-input">{user.username}</li>
