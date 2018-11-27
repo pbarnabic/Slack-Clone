@@ -9,7 +9,7 @@ const mapStateToProps = state => {
   let channels = Object.values(state.entities.channels)
   return{
     showChannels: state.modals.show,
-    currentUser: state.entities.users[state.session.id],
+    currentUser: state.entities.users[state.session.id] || {username:"", id:"-1"},
     channels: channels
   };
 };
