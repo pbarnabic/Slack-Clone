@@ -16,7 +16,6 @@ const mapStateToProps = (state,ownProps) => {
 };
 const mapDispatchToProps = dispatch => {
   return({
-    fetchForeignChannels: () => dispatch(fetchForeignChannels()),
     changeToHide: () => dispatch(hideDMModal()),
     createDirectMessage: (channel) => dispatch(createDirectMessage(channel))
   });

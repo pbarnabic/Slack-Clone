@@ -9,7 +9,7 @@ export const receiveMessages = messages => ({
 });
 
 export const receiveMessage = response => {
-  
+
   return ({
   type: RECEIVE_MESSAGE,
   message: JSON.parse(response).message,
@@ -24,9 +24,3 @@ export const createMessage = (message) => dispatch => {
     dispatch(receiveMessage(message))
   )
 )};
-
-export const fetchMessages = (id) => dispatch => (
-  ConversationAPIUtil.fetchMessages(id).then(messages => (
-    dispatch(receiveMessages(messages))
-  ))
-);

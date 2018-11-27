@@ -1,18 +1,20 @@
-import {fetchChannel, fetchChannels, createChannel, fetchChannelUsers, fetchChannelInfo } from "../../actions/channel_actions";
 import { connect } from 'react-redux';
 import React from 'react';
-import MessagePage from "./messages_page";
+
+import { fetchChannels, fetchChannelInfo } from "../../actions/channel_actions";
 import {hideModal, showModal, showDMModal, hideDMModal} from '../../actions/modal_actions';
-import {fetchMessages, createMessage} from '../../actions/conversation_actions';
+import {createMessage} from '../../actions/conversation_actions';
 import { fetchDMs, fetchDMCandidates } from "../../actions/direct_message_actions";
+
+import MessagePage from "./messages_page";
+
 const mapStateToProps = (state, ownProps) => {
   let channels = Object.values(state.entities.channels)
   const users = Object.values(state.entities.users);
   return{
 
-    showChannels: state.modals.show,
+    showChannelsModal: state.modals.show,
     showDMModal: state.modals.showDM,
-    currentUser: state.entities.users[state.session.id],
     channels: channels || {name: "", id: -1},
     channel: state.entities.channels[ownProps.match.params.id] || {conversation: {id:-1}},
     users: users || [{id: null, username: null}]

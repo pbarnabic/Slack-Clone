@@ -1,4 +1,4 @@
-import { fetchForeignChannels, createChannelMembership, createChannel } from "../../../actions/channel_actions";
+import {createChannelMembership, createChannel } from "../../../actions/channel_actions";
 import {hideModal } from "../../../actions/modal_actions";
 import { connect } from 'react-redux';
 import React from 'react';
@@ -17,7 +17,6 @@ const mapStateToProps = (state,ownProps) => {
 };
 const mapDispatchToProps = dispatch => {
   return({
-    fetchForeignChannels: () => dispatch(fetchForeignChannels()),
     changeToHide: () => dispatch(hideModal()),
     createChannelMembership: (channel) => dispatch(createChannelMembership(channel)),
     createChannel: (channel) => dispatch(createChannel(channel))

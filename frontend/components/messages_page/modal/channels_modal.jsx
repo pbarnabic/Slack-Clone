@@ -13,7 +13,7 @@ class ChannelsModal extends React.Component{
 
 
   joinChannel(id){
-    
+
     this.props.createChannelMembership(id).then(()=>
     {
       this.props.changeToHide();}
@@ -32,6 +32,7 @@ class ChannelsModal extends React.Component{
   }
 
   render(){
+    console.log(this.props.channels)
     const channelList = this.props.channels.map(channel => {
       if(channel.userIds.includes(this.props.currentUser.id) === false){
         return(

@@ -1,4 +1,4 @@
-import {fetchChannels, fetchChannelUsers} from "../../../actions/channel_actions";
+import {fetchChannels} from "../../../actions/channel_actions";
 import { connect } from 'react-redux';
 import React from 'react';
 import ChannelHeader from "./channel_header";
@@ -14,8 +14,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => {
   return{
-    fetchChannels: () => dispatch(fetchChannels()),
-    fetchChannelUsers: (id) => dispatch(fetchChannelUsers(id))
+    fetchChannels: () => dispatch(fetchChannels())
   };
 };
 

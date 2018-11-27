@@ -67,11 +67,8 @@ class MessagePage extends React.Component{
     return(
 
     <div className="main-page-outermost-div">
-      <ActionCable
-          channel={{ channel: 'ConversationsChannel' }}
-          onReceived={res => this.props.receiveConversation(res)}
-        />
-      <ChannelsModalContainer show={this.props.showChannels}/>
+
+      <ChannelsModalContainer show={this.props.showChannelsModal}/>
       <DMsModalContainer show={this.props.showDMModal}/>
       <div className="main-left">
 

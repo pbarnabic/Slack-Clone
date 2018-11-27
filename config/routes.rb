@@ -7,11 +7,8 @@ Rails.application.routes.draw do
     resources :channels do
       collection do
         get 'fetchOne', :to => 'channels#fetchOne', :as => :fetchOne
-        get 'fetchForeignChannels', :to => 'channels#fetchForeignChannels', :as => :fetchForeignChannels
       end
       member do
-        get 'fetchChannelUsers', :to => 'channels#fetchChannelUsers', :as => :fetchChannelUsers
-        get 'channelMessages', :to => 'channels#channelMessages', :as => :channelMessages
         get 'fetchChannelInfo', :to => 'channels#fetchChannelInfo', :as => :fetchChannelInfo
       end
     end

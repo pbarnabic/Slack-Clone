@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Messages from "./messages";
-import { receiveMessage, createMessage, fetchMessages} from '../../../actions/conversation_actions';
+import { receiveMessage, createMessage} from '../../../actions/conversation_actions';
 
 const mapStateToProps = (state,ownProps) => {
   const messages = Object.values(state.entities.messages);
@@ -16,7 +16,6 @@ const mapStateToProps = (state,ownProps) => {
 const mapDispatchToProps = dispatch => {
 
   return{
-    fetchMessages: id => dispatch(fetchMessages(id)),
     receiveMessage: message => dispatch(receiveMessage(message)),
     createMessage: message => dispatch(createMessage(message))
   };

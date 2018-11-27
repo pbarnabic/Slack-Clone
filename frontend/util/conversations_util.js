@@ -5,10 +5,3 @@ export const createMessage = message => (
     data: {message}
   })
 );
-
-export const fetchMessages = id => (
-  $.ajax({
-    method: "get",
-    url: `/api/channels/${id}/channelMessages`
-  })
-)

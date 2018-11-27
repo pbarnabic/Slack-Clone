@@ -9,7 +9,7 @@ export const RECEIVE_CHANNEL_INFO = 'RECEIVE_CHANNEL_INFO';
 
 export const receiveChannelErrors = errors => ({
   type: RECEIVE_CHANNEL_ERRORS,
-  errors: errors
+  errors: errors || {}
 });
 
 export const clearChannelErrors = () => ({
@@ -60,12 +60,6 @@ export const createChannel = (channel) => dispatch => (
   ))
 );
 
-export const fetchChannelUsers = (id) => dispatch =>(
-  ChannelAPIUtil.fetchChannelUsers(id).then(users =>(
-    dispatch(receiveChannelUsers(users))
-  ))
-);
-
 export const fetchDefault = () => dispatch => (
   ChannelAPIUtil.fetchDefaultChannel().then(channel => (
     dispatch(receiveChannel(channel))
@@ -74,11 +68,6 @@ export const fetchDefault = () => dispatch => (
   ))
 );
 
-export const fetchForeignChannels = () => dispatch => (
-  ChannelAPIUtil.fetchForeignChannels().then(channels => (
-    dispatch(receiveChannels(channels))
-  ))
-);
 
 export const createChannelMembership = (channel) => dispatch =>(
   ChannelAPIUtil.createChannelMembership(channel).then(channel =>(
