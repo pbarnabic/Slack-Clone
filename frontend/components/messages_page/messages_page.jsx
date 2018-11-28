@@ -57,7 +57,6 @@ class MessagePage extends React.Component{
 
   handleSubmit(e){
     e.preventDefault();
-    console.log("what the fuck");
     this.props.createMessage({body: this.state.valueOfInput, channel_id: this.props.match.params.id});
     this.setState({valueOfInput: ""});
   }
