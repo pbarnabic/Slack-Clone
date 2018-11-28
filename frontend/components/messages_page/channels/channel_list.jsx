@@ -38,7 +38,9 @@ class ChannelList extends React.Component{
         <div id="channels-title-div">
           <span id="channels-title" onClick={() => this.changeToShow()}>Channels</span>
         </div>
-        {channelList}
+        <div className="channels-list-div">
+          {channelList}
+        </div>
       </ul>
     );
 

@@ -24,7 +24,7 @@ class DMsList extends React.Component{
             </Link>
           );
         }else if(channel.userIds.includes(this.props.currentUser.id)){
-          
+
             return(
                <li key={channel.id} className="listed-channels selected-channels">
                  <span className="selected-hash">○ </span>{channel.channel_name}
@@ -38,7 +38,9 @@ class DMsList extends React.Component{
         <div id="channels-title-div">
           <span id="channels-title" onClick={() => this.changeToShow()}>Direct Messages</span>
         </div>
-        {channelList}
+        <div className="dms-list-div">
+          {channelList}
+        </div>
       </ul>
     );
 
