@@ -63,9 +63,9 @@
   border-radius: .3rem;
   min-height: 46px;
   height: 40px;
-  position: fixed;
-  margin-top: 80vh;
-  margin-left: 50px;
+  margin-top: 0vh;
+  margin-left: 4.5vw;
+  width: 74vw;
 }
 
 
@@ -74,7 +74,7 @@
   min-height: 44px;
   height: 40px;
   font-size: 16px;
-  width: 65vw;
+  width: 66vw;
 
 
 }
@@ -88,6 +88,7 @@ input{
   border: 1px solid rgba(145,145,147,.4);
   color: #2c2d30;
   width: calc(100vw - 221px);
+  min-width: 1000px;
 
 }
 
@@ -115,8 +116,9 @@ input{
 }
 
 .chat-sub{
-  padding: 13px;
+  /* padding: 13px; */
   font-size: 20px;
   background-color: white;
   color: #878789;
+  padding-left: 1vw;
 }

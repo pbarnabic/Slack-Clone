@@ -57,6 +57,7 @@ class MessagePage extends React.Component{
 
   handleSubmit(e){
     e.preventDefault();
+    console.log("what the fuck");
     this.props.createMessage({body: this.state.valueOfInput, channel_id: this.props.match.params.id});
     this.setState({valueOfInput: ""});
   }
@@ -108,7 +109,6 @@ class MessagePage extends React.Component{
                 <input placeholder="Message" id="chat-input" onChange={e => this.handleChange(e)} type="text" value={this.state.valueOfInput}/>
               </form>
           </div>
-            <div className="chat-sub">@</div>
             <div className="chat-sub">☺</div>
           </div>
         </div>
