@@ -21,7 +21,6 @@ export const receiveMessage = response => {
 export const createMessage = (message) => dispatch => {
 
   return ConversationAPIUtil.createMessage(message).then(message => {
-    console.log("We know createMessage Fullfills Its Promise");
     return dispatch(receiveMessage(message));
   }
 )};
