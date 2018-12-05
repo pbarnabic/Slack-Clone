@@ -14,9 +14,9 @@ export const receiveDMs = (dms) => ({
     dms: dms
 });
 
-export const receiveDM = (dm) => ({
+export const receiveDM = (dms) => ({
     type: RECEIVE_DIRECT_MESSAGE,
-    dms: dm
+    dms: JSON.parse(dms)
 });
 
 

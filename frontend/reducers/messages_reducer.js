@@ -17,8 +17,8 @@ export default (state={}, action) => {
       let retVal = action.messages || {};
       return retVal;
     case RECEIVE_MESSAGE:
-      let random = merge({},state,{[action.message.id]: action.message});
-      return random;
+      let newState = merge({},state,{[action.message.id]: action.message});
+      return newState;
     default:
       return state;
   }

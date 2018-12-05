@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import DMsList from "./dms_list";
 import {showDMModal} from '../../../actions/modal_actions';
+import {receiveDM} from '../../../actions/direct_message_actions';
 
 const mapStateToProps = (state, ownProps) => {
   let channels = Object.values(state.entities.directMessages);
@@ -16,7 +17,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => {
   return{
-    changeToShow: () => dispatch(showDMModal())
+    changeToShow: () => dispatch(showDMModal()),
+    receiveDM: (dm) => dispatch(receiveDM(dm))
   };
 };
 

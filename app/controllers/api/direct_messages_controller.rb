@@ -24,7 +24,14 @@ class Api::DirectMessagesController < ApplicationController
       end
       channel_membership = ChannelMembership.new(user_id: current_user.id, channel_id: @channel.id)
       if channel_membership.save
-        render "api/direct_messages/show"
+        #here is where we will broadcast
+        data = render :show
+        @users.each do |user|
+          ChatsChannel.broadcast_to user, data
+          head :ok
+        end
+        #broadcasting should be taken care of
+        # render "api/direct_messages/show"
       else
         render json: channel_membership.errors.full_messages, status: 422
       end

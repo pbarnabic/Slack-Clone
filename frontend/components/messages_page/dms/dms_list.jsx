@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
+import {ActionCable} from 'react-actioncable-provider';
 
 class DMsList extends React.Component{
 
@@ -35,6 +36,13 @@ class DMsList extends React.Component{
 
     return(
       <ul>
+
+        <ActionCable
+          key={this.props.channel.id}
+          channel = {{channel: 'ChatsChannel', user_id: this.props.currentUser.id}}
+          onReceived ={res => {this.props.receiveDM(res)}}
+        />
+
         <div id="channels-title-div">
           <span id="channels-title" onClick={() => this.changeToShow()}>Direct Messages</span>
         </div>

@@ -12,7 +12,6 @@ const usersReducer = (state = {}, action) => {
     case RECEIVE_CURRENT_USER:
       return merge({}, state, { [action.currentUser.id]: action.currentUser });
     case RECEIVE_MESSAGE:
-      
       return merge({}, state, { [action.user.id]: action.user });
     case RECEIVE_CHANNEL_USERS:
       return action.users;
