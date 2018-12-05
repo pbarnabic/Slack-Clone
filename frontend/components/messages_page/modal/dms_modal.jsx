@@ -40,10 +40,9 @@ class DMsModal extends React.Component{
     });
   }
 
-// this.props.history.push(`/messages/${response.id}`
-
   handleSubmit(){
-    this.props.createDirectMessage({channel: {user_ids: this.state.users}}).then(response => this.props.history.push(`/messages/${response.dms.id}`)).then(() => this.props.changeToHide());    
+    this.props.createDirectMessage({channel: {user_ids: this.state.users}}).then(response => this.props.history.push(`/messages/${response.dms.id}`)).then(() => this.props.changeToHide());
+    this.props.changeToHide();
     this.setState({inputValue: "", users: [], searchResults: this.props.dmCandidates, selected: []});
   }
 

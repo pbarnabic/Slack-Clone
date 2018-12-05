@@ -8,6 +8,15 @@ class DMsList extends React.Component{
     this.props.changeToShow();
   }
 
+  handleNewDm(dm){
+    this.props.receiveDM(dm);
+    let newDMCreatorId = dm.slice(dm.indexOf(`admin_id":`)+10,dm.indexOf(`,"channel_name":`));
+    let newDMId = dm.slice(dm.indexOf(`id":`)+4,dm.indexOf(`,"admin_id":`))
+    if (newDMCreatorId = this.props.currentUser.id){
+      this.props.history.push(`/messages/${newDMId}`);
+    }
+  }
+
   render(){
 
     var index = [0];
@@ -40,7 +49,7 @@ class DMsList extends React.Component{
         <ActionCable
           key={this.props.channel.id}
           channel = {{channel: 'ChatsChannel', user_id: this.props.currentUser.id}}
-          onReceived ={res => {this.props.receiveDM(res)}}
+          onReceived ={res => {this.handleNewDm(res)}}
         />
 
         <div id="channels-title-div">
