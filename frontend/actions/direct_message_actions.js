@@ -14,10 +14,13 @@ export const receiveDMs = (dms) => ({
     dms: dms
 });
 
-export const receiveDM = (dms) => ({
+export const receiveDM = (dms) => {
+  debugger
+  return ({
     type: RECEIVE_DIRECT_MESSAGE,
     dms: JSON.parse(dms)
 });
+};
 
 
 
@@ -31,11 +34,13 @@ export const fetchDMCandidates = () => dispatch => (
   ))
 );
 
-export const createDirectMessage = (dm) => dispatch => (
-  DirectMessageAPIUtil.createDirectMessage(dm).then(dm => (
-    dispatch(receiveDM(dm))
-  ))
-);
+export const createDirectMessage = (dm) => dispatch => {
+  console.log("we got this far")
+  return DirectMessageAPIUtil.createDirectMessage(dm).then(dm => {
+    console.log("this is working");
+    return dispatch(receiveDM(dm));
+  })
+};
 
 export const fetchDMs = () => dispatch => (
   DirectMessageAPIUtil.fetchDMs().then(dms => (

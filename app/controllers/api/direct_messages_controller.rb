@@ -7,13 +7,15 @@ class Api::DirectMessagesController < ApplicationController
 
 
   def create
-    #Channel.new(admin_id: current_user.id, channel_name: params[:channel][:channel_name])
+
     @users = params[:dm][:channel][:user_ids].map{|id| User.find(id)}
     channel_name = @users[0,3].map{|user| user.username}.join(",")
+
     @channel = Channel.new(admin_id: current_user.id, channel_name: channel_name)
     @channel.is_direct_message = true
 
     if @channel.save
+
       @users.each do |user|
         channel_membership = ChannelMembership.new(user_id: user.id, channel_id: @channel.id)
         if channel_membership.save
@@ -22,7 +24,9 @@ class Api::DirectMessagesController < ApplicationController
           render json: channel_membership.errors.full_messages, status: 422
         end
       end
+
       channel_membership = ChannelMembership.new(user_id: current_user.id, channel_id: @channel.id)
+
       if channel_membership.save
         #here is where we will broadcast
         data = render :show
@@ -30,8 +34,10 @@ class Api::DirectMessagesController < ApplicationController
           ChatsChannel.broadcast_to user, data
           head :ok
         end
-        #broadcasting should be taken care of
-        # render "api/direct_messages/show"
+        #Don't want to forget the current user
+        ChatsChannel.broadcast_to current_user, data
+        head :ok
+
       else
         render json: channel_membership.errors.full_messages, status: 422
       end
