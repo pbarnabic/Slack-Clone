@@ -175,7 +175,9 @@ a{
 
 .middle-of-header span{
   padding-right: 25px;
+  color: #6d6f7b;
 }
+
 .login-signup, .header-class{
   display: flex;
   flex-direction: row;

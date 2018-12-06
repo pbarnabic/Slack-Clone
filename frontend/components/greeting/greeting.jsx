@@ -13,10 +13,10 @@ const Greeting = ({ currentUser, logout }) => {
             <h1 id="title-of-site">slack</h1>
           </Link>
         <div className="middle-of-header">
-          <span className="middle-header-items">Why Slack?</span>
-          <span className="middle-header-items">Solutions</span>
-          <span className="middle-header-items">Resources</span>
-          <span className="middle-header-items">Pricing</span>
+          <a href="https://pbarnabic.github.io/" target="_blank"><span className="middle-header-items">Why Slack?</span></a>
+          <a href="https://pbarnabic.github.io/" target="_blank"><span className="middle-header-items">Solutions</span></a>
+          <a href="https://pbarnabic.github.io/" target="_blank"><span className="middle-header-items">Resources</span></a>
+          <a href="https://pbarnabic.github.io/" target="_blank"><span className="middle-header-items">Pricing</span></a>
         </div>
       </div>
 
