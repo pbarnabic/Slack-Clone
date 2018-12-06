@@ -9,9 +9,9 @@ const mapStateToProps = (state, ownProps) => {
 
   return{
     currentUser: state.entities.users[state.session.id] || {id: -1, username:""},
-    channels: channels || [{id: "", channel_name: ""}],
-    channel: state.entities.directMessages[ownProps.url] || {id: "", channel_name: ""},
-
+    channels: channels || [{id: "", channel_name: "", userIds:""}],
+    channel: state.entities.directMessages[ownProps.url] || {id: "", channel_name: "",userIds:""},
+    users: state.entities.users || {id:"", username:""}
   };
 };
 

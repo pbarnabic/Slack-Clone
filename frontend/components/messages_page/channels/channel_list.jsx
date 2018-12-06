@@ -9,9 +9,6 @@ class ChannelList extends React.Component{
 
   render(){
 
-    var index = [0];
-    var channel_name = "";
-
     const channelList = this.props.channels.map((channel,idx) => {
         var channel_name = channel.channel_name;
         if (channel.channel_name.length > 18){

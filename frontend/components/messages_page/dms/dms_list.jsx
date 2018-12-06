@@ -19,17 +19,19 @@ class DMsList extends React.Component{
 
   render(){
 
-    var index = [0];
-    var channel_name = "";
-
     const channelList = this.props.channels.map((channel,idx) => {
+      let channel_name = this.parseDMName(channel);
+
+      if (channel.channel_name.length > 18){
+        channel_name = channel_name.slice(0,18) + "...";
+      }
 
         if(channel.userIds.includes(this.props.currentUser.id) && channel.id != this.props.channel.id){
 
           return(
             <Link key={channel.id} to={`/messages/${channel.id}`} >
               <li className="listed-channels non-selected-channels" >
-                <span className="hash">○ </span>{channel.channel_name}
+                <span className="hash">○ </span>{channel_name}
               </li>
             </Link>
           );
@@ -37,7 +39,7 @@ class DMsList extends React.Component{
 
             return(
                <li key={channel.id} className="listed-channels selected-channels">
-                 <span className="selected-hash">○ </span>{channel.channel_name}
+                 <span className="selected-hash">○ </span>{channel_name}
                </li>
             );
           };
@@ -61,6 +63,48 @@ class DMsList extends React.Component{
       </ul>
     );
 
+
+  }
+
+
+  parseDMName(channel){
+    let currentUserUsername = this.props.currentUser.username;
+    let originalChannelName = channel.channel_name;
+
+    let startIndex;
+    let endIndex;
+    let name = "";
+  
+    if(originalChannelName == currentUserUsername){
+      return originalChannelName;
+    }
+
+    if(originalChannelName.indexOf(currentUserUsername + ",") != -1 ){
+      startIndex = originalChannelName.indexOf(currentUserUsername + ",");
+      endIndex = startIndex + currentUserUsername.length + 1;
+      name = originalChannelName.slice(0,startIndex) + originalChannelName.slice(endIndex);
+
+    }else if(originalChannelName.indexOf(currentUserUsername) != -1){
+
+      if(originalChannelName.indexOf(currentUserUsername) == originalChannelName.length - currentUserUsername){
+        startIndex = 0;
+        endIndex = originalChannelName.indexOf(currentUserUsername);
+        name = originalChannelName.slice(0,endIndex);
+      }else{
+        return originalChannelName;
+      }
+
+    }else{
+      return originalChannelName;
+    }
+
+    name.indexOf(",,") != -1 ? name = name.slice(0,startIndex) + name.slice(startIndex+1) : name;
+
+    name.slice(name.length - 1) == "," ? name = name.slice(0,name.length - 1) : name;
+
+    name.slice(0,1) == "," ? name = name.slice(1) : name;
+
+    return name;
 
   }
 
