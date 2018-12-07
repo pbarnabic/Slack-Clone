@@ -103,3 +103,71 @@
   border-radius: .2rem;
 
 }
+
+.hidden-recent-search-modal{
+  display: none;
+}
+
+.visible-recent-search-modal{
+  background-color: white;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  /* z-index: 3; */
+  width: 90vw;
+  height: 337px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 6px;
+  border: 1px solid black;
+}
+
+.visible-recent-search-modal input{
+  width: 80vw;
+  display: flex;
+  align-items: center;
+  height: 34px;
+  font-family: NotoSansJP,Slack-Lato,appleLogo,sans-serif;
+  line-height: 1rem;
+  font-size: 16px;
+  margin-top: 10px;
+  padding-left: 10px;
+  padding-top: 5px;
+  overflow: hidden;
+
+
+}
+.visible-recent-search-modal input:focus{
+  outline: none;
+
+}
+
+.visible-recent-search-modal button{
+  border: none;
+  font-family: NotoSansJP,Slack-Lato,appleLogo,sans-serif;
+  color: #717274;
+  font-size: 16px;
+  padding: 0 16px;
+  outline: none;
+
+}
+.visible-recent-search-modal button:first-of-type{
+  border-right: 1px #717274;
+
+}
+@media only screen and (max-width: 1185px) {
+  #recentSearchModal-searchBar input {
+    width: 40vw;
+  }
+}
+@media only screen and (max-width: 400px) {
+  #recentSearchModal-searchBar input {
+    width: 100px;
+  }
+}
+
+#recentSearchModal-searchBar{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

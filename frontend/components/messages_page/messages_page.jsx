@@ -5,8 +5,10 @@ import ChannelListContainer from './channels/channel_list_container';
 import DMsListContainer from './dms/dms_list_container';
 import ChannelsModalContainer from './modal/channels_modal_container';
 import DMsModalContainer from './modal/dms_modal_container';
+import RecentSearchesModalContainer from './modal/recent_searches_modal_container';
 import ChannelHeaderContainer from './channel_header/channel_header_container';
 import MessagesContainer from './messages/messages_container';
+import SearchBarContainer from './channel_header/search_bar_container';
 import {ActionCable} from 'react-actioncable-provider';
 
 class MessagePage extends React.Component{
@@ -16,6 +18,7 @@ class MessagePage extends React.Component{
     this.handleSubmit = this.handleSubmit.bind(this);
     this.state = {valueOfInput: ""};
     this.handleChange = this.handleChange.bind(this);
+    this.changeToShow = this.changeToShow.bind(this);
 
   }
 
@@ -27,7 +30,6 @@ class MessagePage extends React.Component{
     this.props.changeDMToHide();
     this.props.fetchChannelInfo(this.props.match.params.id)
     this.channel_id = this.props.match.params.id;
-
   }
 
   componentDidUpdate(prevProps,prevState){
@@ -37,14 +39,12 @@ class MessagePage extends React.Component{
     };
   }
 
-
   changeToShow(){
     this.props.changeToShow();
   }
   changeToHide(){
     this.props.changeToHide();
     this.props.fetchChannelInfo(this.props.match.params.id);
-
   }
 
   handleChange(e){
@@ -70,10 +70,9 @@ class MessagePage extends React.Component{
 
       <ChannelsModalContainer show={this.props.showChannelsModal}/>
       <DMsModalContainer show={this.props.showDMModal}/>
+
       <div className="main-left">
-
         <TopLeftCornerContainer />
-
         <div className="bottom">
           <div id="channel-section">
             <ChannelListContainer url={channel_id} />
@@ -87,19 +86,21 @@ class MessagePage extends React.Component{
         <div className="top" id="top-right">
 
             <div id="left-side-top-left">
+              <RecentSearchesModalContainer show={this.props.showRecentSearchModal}/>
               <ChannelHeaderContainer channel_id={channel_id}/>
             </div>
             <div id="left-side-top-middle">
 
             </div>
             <div id="left-side-top-right">
+              <SearchBarContainer/>
             </div>
+
         </div>
         <div className="bottom" id="right-bottom">
           <div id="message-history">
+
             <MessagesContainer channel_id={channel_id}/>
-
-
           </div>
           <div id="chat-div">
             <div className="chat-sub" id="plus-sign">+</div>

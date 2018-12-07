@@ -27,6 +27,7 @@ class Messages extends React.Component{
         <li key={message.id}>
           <div className="Received-Message-Box">
             <div className="Received-Message-Box-left">
+              <img id="profile-pic-img" src={window.slack_profile_pic} />
             </div>
             <div className="Received-Message-Box-right">
               <div className="Received-Message-Box-right-top">

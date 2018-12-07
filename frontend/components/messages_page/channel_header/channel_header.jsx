@@ -3,20 +3,22 @@ import { withRouter, Link } from 'react-router-dom';
 export default class MessagePage extends React.Component{
 
   render(){
-    
+
     let channelName = this.parseChannelName(this.props.channel);
     if(this.props.channel.is_direct_message == false){
       channelName = "#" + channelName;
     }
 
     return(
-    <div>
-      <div className="top-row-left-side-top-left">
-        <span>{channelName} </span>
-      </div>
-      <div className="bottom-row-left-side-top-left">
-        <span>👤 {this.props.channel.userIds.length}</span>
-      </div>
+    <div className="channel-header-class">
+      <div className = "header-left-side">
+        <div className="top-row-left-side-top-left">
+          <span>{channelName} </span>
+        </div>
+        <div className="bottom-row-left-side-top-left">
+          <span>👤 {this.props.channel.userIds.length}</span>
+        </div>
+      </div>   
     </div>
 
   );

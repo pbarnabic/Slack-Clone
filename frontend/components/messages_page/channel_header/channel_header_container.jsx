@@ -1,4 +1,3 @@
-import {fetchChannels} from "../../../actions/channel_actions";
 import { connect } from 'react-redux';
 import React from 'react';
 import ChannelHeader from "./channel_header";

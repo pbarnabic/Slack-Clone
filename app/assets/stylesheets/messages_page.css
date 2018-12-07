@@ -110,6 +110,21 @@ box-sizing: border-box;
   min-width:25vw;
 }
 
+#search-bar-in-header{
+  display: flex;
+  align-items: center;
+  height: 34px;
+  border-radius: .35rem;
+  border: 1px solid #919193;
+  font-family: NotoSansJP,Slack-Lato,appleLogo,sans-serif;
+  line-height: 1rem;
+  font-size: 14px;
+  margin-top: 10px;
+  padding-left: 10px;
+  padding-top: 5px;
+  width: 18vw;
+}
+
 .top-row-left-side-top-left{
   font-family: NotoSansJP,Slack-Lato,appleLogo,sans-serif;
   color: #2c2d30;

@@ -59,12 +59,12 @@
 #chat-div{
   display: flex;
   align-items: center;
-  border: 2px solid #b2b2b3;
+  border: 2px solid #717274;
   border-radius: .3rem;
   min-height: 46px;
   height: 40px;
   margin-top: 0vh;
-  margin-left: 4.5vw;
+  margin-left: 1.5vw;
   width: 74vw;
 }
 
