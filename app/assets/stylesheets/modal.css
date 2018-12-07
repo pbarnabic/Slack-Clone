@@ -113,13 +113,13 @@
   position: fixed;
   display: flex;
   flex-direction: column;
-  /* z-index: 3; */
   width: 90vw;
-  height: 337px;
+  height: 238px;
   justify-content: space-between;
   align-items: center;
   border-radius: 6px;
-  border: 1px solid black;
+  border: 1px solid #757575;
+
 }
 
 .visible-recent-search-modal input{
@@ -134,6 +134,7 @@
   padding-left: 10px;
   padding-top: 5px;
   overflow: hidden;
+  border-bottom: 1px solid #757575;
 
 
 }
@@ -168,6 +169,49 @@
 
 #recentSearchModal-searchBar{
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+}
+
+#last-five-searches{
+  width: 80vw;
+  height: 15vw;
+  padding-right: 100px;
+  display: flex;
+  flex-direction: column;
+  font-family: NotoSansJP,Slack-Lato,appleLogo,sans-serif;
+
+}
+
+#last-five-searches p{
+  font-size: 14px;
+  color: #757575;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.recent-Search-Query{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-weight: 700;
+  list-style: none;
+  font-size: 16px;
+
+}
+
+.recent-Search-Query:hover{
+  background-color: #2d9ee0;
+  color: white;
+
+}
+
+#recentSearchModal-searchBar-input{
+  width: 75%;
+}
+#recentSearchModal-searchBar-buttons{
+  margin-left: 10%;
+  margin-top: 10px;
+}
+
+#recentSearchModal-searchBar-buttons:first-child{
+  border-right: 1px solid grey;
+
 }

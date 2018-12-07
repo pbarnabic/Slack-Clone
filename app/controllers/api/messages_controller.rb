@@ -2,7 +2,7 @@ class Api::MessagesController < ApplicationController
   def create
 
    @message = Message.new(message_params)
-   
+
    @message.user_id = current_user.id
 
    channel = Channel.find(message_params[:channel_id])
@@ -12,6 +12,18 @@ class Api::MessagesController < ApplicationController
      head :ok
    end
  end
+
+
+ def search
+   query = params[:query];
+   @resultingMessages = current_user.received_messages
+   @resultingAuthors = current_user.contacts
+
+   render 'api/messages/search_results'
+
+ end
+
+
 
  private
 

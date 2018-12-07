@@ -14,7 +14,11 @@ Rails.application.routes.draw do
     end
     resources :channel_memberships, only:[:create]
     resources :conversations, only: [:index,:create, :show]
-    resources :messages, only: [:create]
+    resources :messages do
+      collection do
+        get 'search', :to => 'messages#search', :as => :search
+      end
+    end
     resources :direct_messages do
       collection do
         # get 'fetchOne', :to => 'channels#fetchOne', :as => :fetchOne

@@ -35,6 +35,19 @@ class User < ApplicationRecord
     through: :channel_memberships,
     source: :channels
 
+  has_many :messages,
+    primary_key: :id,
+    foreign_key: :user_id,
+    class_name: :Message
+
+  has_many :received_messages,
+    through: :channels,
+    source: :messages
+
+  has_many :contacts,
+    through: :received_messages,
+    source: :author
+
 
   def ensure_session_token
     self.session_token ||= User.new_session_token
