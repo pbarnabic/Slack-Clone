@@ -1,7 +1,7 @@
 import React from 'react';
 import RecentSearchesModal from "./recent_searches_modal";
 import { connect } from 'react-redux';
-import {hideRecentSearchModal } from "../../../actions/modal_actions";
+import {hideRecentSearchModal, showSearchResultsModal } from "../../../actions/modal_actions";
 import {addToSearch } from "../../../actions/search_actions";
 import {search} from '../../../actions/search_actions';
 
@@ -18,6 +18,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => {
   return({
     changeToHide: () => dispatch(hideRecentSearchModal()),
+    showSearchResultsModal: () => dispatch(showSearchResultsModal()),
     addToSearch: (search) => dispatch(addToSearch(search)),
     search: (str) => dispatch(search(str))
   });

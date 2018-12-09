@@ -16,8 +16,12 @@ class Api::MessagesController < ApplicationController
 
  def search
    query = params[:query];
-   @resultingMessages = current_user.received_messages
-   @resultingAuthors = current_user.contacts
+   @resultingMessages = current_user.received_messages.select{|message| message.body.include?(query)}
+   unless @resultingMessages.empty?
+     @resultingAuthors = current_user.contacts
+   else
+     @resultingAuthors = []
+   end
 
    render 'api/messages/search_results'
 

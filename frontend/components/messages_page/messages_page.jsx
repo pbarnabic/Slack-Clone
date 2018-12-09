@@ -6,6 +6,7 @@ import DMsListContainer from './dms/dms_list_container';
 import ChannelsModalContainer from './modal/channels_modal_container';
 import DMsModalContainer from './modal/dms_modal_container';
 import RecentSearchesModalContainer from './modal/recent_searches_modal_container';
+import SearchResultsModalContainer from './modal/search_results_modal_container';
 import ChannelHeaderContainer from './channel_header/channel_header_container';
 import MessagesContainer from './messages/messages_container';
 import SearchBarContainer from './channel_header/search_bar_container';
@@ -87,6 +88,7 @@ class MessagePage extends React.Component{
 
             <div id="left-side-top-left">
               <RecentSearchesModalContainer show={this.props.showRecentSearchModal}/>
+              <SearchResultsModalContainer show={this.props.showSearchResultsModal}/>
               <ChannelHeaderContainer channel_id={channel_id}/>
             </div>
             <div id="left-side-top-middle">

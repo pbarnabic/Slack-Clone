@@ -185,7 +185,7 @@
   font-size: 14px;
   color: #757575;
   margin-bottom: 20px;
-  margin-top: 20px;
+  margin-top: 35px;
 }
 
 .recent-Search-Query{
@@ -213,5 +213,95 @@
 
 #recentSearchModal-searchBar-buttons:first-child{
   border-right: 1px solid grey;
+}
 
+.hidden-search-results-modal{
+  display: none;
+}
+
+.visible-search-results-modal{
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  background-color: #f9f9f9;
+  width: 82vw;
+  height: 95%;
+  font-size: 34px;
+  margin-left: 3vw;
+  border-radius: 10px;
+  font-family: NotoSansJP,Slack-Lato,appleLogo,sans-serif;
+  margin-top: 10px;
+  border: 1px solid #e8e8e8;
+
+}
+
+#search-results-modal-search-results-search-bar{
+  background-color: white;
+  border-bottom: 1px solid #e8e8e8;
+  display: flex;
+  padding-top: 18px;
+}
+
+#search-results-modal-search-results-search-bar input{
+  font-size: 18px;
+  font-family: NotoSansJP,Slack-Lato,appleLogo,sans-serif;
+  padding-left: 25px;
+  color: #333437;
+  margin-bottom: 14px;
+  width: 75vw;
+}
+
+#search-results-modal-search-results-search-bar input:focus{
+  outline: none;
+}
+
+#search-results-modal-search-results-description{
+  color: #2c2d30;
+  font-size: 15px;
+  font-weight: 700;
+  font-family: inherit;
+  background-color: white;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+#search-results-modal-search-results-search-bar span{
+  font-size: 18px;
+  display: block;
+  padding-left: 35px;
+  padding-top: 3px;
+}
+
+
+#search-results-modal-search-results-description p{
+  font-size: 21px;
+  font-weight: 700;
+  font-family: inherit;
+  border-bottom: 1px solid #e8e8e8;
+  padding-left: 33px;
+  color: #333437;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+#search-results-modal-search-results-summary{
+  color: #767779;
+  padding-top: 16px;
+  margin-bottom: 35px;
+  font-size: 20px;
+  font-weight: 700;
+  padding-left: 30px;
+}
+
+.search-result-message-box{
+  background-color: white;
+  border-radius: 5px;
+  width: 80vw;
+  margin-bottom: 25px;
+}
+
+#search-results-modal-search-results-messages{
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  align-items: center;
 }

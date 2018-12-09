@@ -35,14 +35,24 @@ class RecentSearchesModal extends React.Component{
     e.preventDefault();
     this.props.addToSearch(this.state.inputValue);
     this.props.search(this.state.inputValue);
+    this.setState({inputValue: ""});
     this.props.changeToHide();
+    this.props.showSearchResultsModal();
+  }
+
+  handleSearchAgain(search){
+    this.props.addToSearch(search);
+    this.props.search(search);
+    this.setState({inputValue: ""});
+    this.props.changeToHide();
+    this.props.showSearchResultsModal();
   }
 
   render(){
 
     let selectFive = this.props.recentSearches.slice(-5,-1).map(search => {
       return(
-        <li className="recent-Search-Query">
+        <li className="recent-Search-Query" key={search + Math.random()} onClick={() => this.handleSearchAgain(search)}>
           <span>🔍     {search}</span>
         </li>
       );
