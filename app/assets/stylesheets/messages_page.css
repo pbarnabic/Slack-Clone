@@ -205,3 +205,34 @@ box-sizing: border-box;
   color: #a3a4a5;
   font-size: 10px;
 }
+
+.hidden-users-dropdown{
+  display: none;
+}
+
+.visible-users-dropdown{
+  position: fixed;
+  background-color: white;
+  overflow-y: scroll;
+  width: 375px;
+  height: 180px;
+  font-size: 22px;
+  font-family: NotoSansJP,Slack-Lato,appleLogo,sans-serif;
+  color: #333437;
+  border: 1px solid lavender;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+.dropdown-users-list-item{
+  display: flex;
+  flex-direction: row;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid lavender;
+}
+
+.dropdown-users-list-item li{
+  padding-top: 2%;
+  padding-left: 5%;
+}

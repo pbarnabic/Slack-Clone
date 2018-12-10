@@ -2,12 +2,31 @@ import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
 export default class MessagePage extends React.Component{
 
+  constructor(props){
+    super(props);
+    this.state = {showUsers: "hidden-users-dropdown"};
+    this.showUsersDropDown = this.showUsersDropDown.bind(this);
+  }
+
+  showUsersDropDown(){
+    this.state.showUsers == "hidden-users-dropdown" ? this.setState({showUsers: "visible-users-dropdown"}) : this.setState({showUsers: "hidden-users-dropdown"});
+  }
+
   render(){
 
     let channelName = this.parseChannelName(this.props.channel);
     if(this.props.channel.is_direct_message == false){
       channelName = "#" + channelName;
     }
+
+    let usersList = this.props.users.map(user =>{
+      return(
+        <div key={user.id} className="dropdown-users-list-item">
+            <img id="profile-pic-img" src={window.slack_profile_pic} />          
+            <li>{user.username}</li>
+        </div>
+      )
+    })
 
     return(
     <div className="channel-header-class">
@@ -16,7 +35,12 @@ export default class MessagePage extends React.Component{
           <span>{channelName} </span>
         </div>
         <div className="bottom-row-left-side-top-left">
-          <span>👤 {this.props.channel.userIds.length}</span>
+          <span onClick={this.showUsersDropDown}>👤 {this.props.channel.userIds.length}</span>
+          <div className={this.state.showUsers}>
+            <ul>
+              {usersList}
+            </ul>
+          </div>
         </div>
       </div>
     </div>
