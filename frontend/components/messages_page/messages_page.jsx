@@ -112,7 +112,7 @@ class MessagePage extends React.Component{
                 <input placeholder="Message" id="chat-input" onChange={e => this.handleChange(e)} type="text" value={this.state.valueOfInput}/>
               </form>
           </div>
-            <div className="chat-sub">☺</div>
+            <div className="chat-sub"> </div>
           </div>
         </div>
       </div>

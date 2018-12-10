@@ -15,14 +15,11 @@ import SignUpHeaderContainer from './components/headers/signup_header_container'
 import MainPageContainer from './components/main_page/main_page_container';
 import MessagePageContainer from './components/messages_page/messages_page_container';
 import {AuthRoute} from './util/route_util';
-import {API_WS_ROOT} from '../constants/constants.js';
 const App = () => (
   <div>
 
     <Switch>
       <Route exact path="/" component={GreetingContainer} />
-      <Route exact path="/signup" component={SignUpHeaderContainer} />
-      <Route exact path="/login" component={LogInHeaderContainer} />
       <Route exact path="/messages" component={MainPageContainer} />
       <Route exact path="/messages/:id" component={MessagePageContainer}/>
     </Switch>
