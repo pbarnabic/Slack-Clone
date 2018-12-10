@@ -9,7 +9,8 @@ class Api::DirectMessagesController < ApplicationController
   def create
 
     @users = params[:dm][:channel][:user_ids].map{|id| User.find(id)}
-    channel_name = @users[0,3].map{|user| user.username}.join(",")
+    channel_name = @users.map{|user| user.username}.join(",")
+    channel_name = current_user.username + ", " + channel_name
 
     @channel = Channel.new(admin_id: current_user.id, channel_name: channel_name)
     @channel.is_direct_message = true

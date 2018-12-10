@@ -36,6 +36,7 @@ class MessagePage extends React.Component{
   componentDidUpdate(prevProps,prevState){
     if (prevProps.match.params.id != this.props.match.params.id){
       this.props.fetchChannelInfo(this.props.match.params.id);
+      this.props.fetchDMCandidates();
       this.channel_id = this.props.match.params.id;
     };
   }
