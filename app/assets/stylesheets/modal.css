@@ -71,6 +71,8 @@
   border: 1px solid #919193;
   border-radius: .25rem;
   margin-top: 30px;
+  height: 35px;
+  margin-right: 20px;
 }
 
 
@@ -304,4 +306,17 @@
   flex-direction: column;
   overflow-y: scroll;
   align-items: center;
+}
+
+#Go-Button{
+  font-family: NotoSansJP,Slack-Lato,appleLogo,sans-serif;
+  background-color: #e8e8e8;
+  color: #5b5c5e;
+  padding: 20px;
+  border-radius: 6px;
+  font-size: 23px;
+  height: 100%;
+  line-height: 1.5rem;
+  font-weight: 700;
+  border: none;
 }
