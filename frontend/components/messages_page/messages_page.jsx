@@ -11,17 +11,19 @@ import ChannelHeaderContainer from './channel_header/channel_header_container';
 import MessagesContainer from './messages/messages_container';
 import SearchBarContainer from './channel_header/search_bar_container';
 import {ActionCable} from 'react-actioncable-provider';
+import SpeechRecognition from 'react-speech-recognition';
 
 class MessagePage extends React.Component{
 
   constructor(props){
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.state = {valueOfInput: "", showURLBar: "invisible-url-bar", valueOfURL:""};
+    this.state = {valueOfInput: "", showURLBar: "invisible-url-bar", valueOfURL:"",listening: false, redDot: "hide-red-dot", microphone: "show-microphone"};
     this.handleChange = this.handleChange.bind(this);
     this.handleURLChange = this.handleURLChange.bind(this);
     this.changeToShow = this.changeToShow.bind(this);
     this.revealURLBar = this.revealURLBar.bind(this);
+    this.handleDictation = this.handleDictation.bind(this);
   }
 
   componentDidMount(){
@@ -48,6 +50,27 @@ class MessagePage extends React.Component{
   changeToHide(){
     this.props.changeToHide();
     this.props.fetchChannelInfo(this.props.match.params.id);
+  }
+
+  handleDictation(){
+    if(this.state.listening == false){
+      this.props.startListening();
+      this.setState({listening: true, redDot: "show-red-dot", microphone: "hide-microphone"});
+    }else{
+      this.props.stopListening();
+      let transcript = this.props.finalTranscript;
+      let currentInput = this.state.valueOfInput;
+      let newInput = currentInput + " " + transcript;
+      this.setState({
+        valueOfInput: newInput,
+        redDot: "hide-red-dot",
+        microphone: "show-microphone",
+        listening: false
+      });
+      this.props.resetTranscript();
+    }
+
+
   }
 
   handleChange(e){
@@ -145,7 +168,8 @@ class MessagePage extends React.Component{
                 <input placeholder="Message" id="chat-input" onChange={e => this.handleChange(e)} type="text" value={this.state.valueOfInput}/>
               </form>
           </div>
-            <div className="chat-sub"> </div>
+            <div className="chat-sub"><span className={this.state.microphone} onClick={this.handleDictation}>🎙</span> </div>
+            <div className="chat-sub"><span className={this.state.redDot} onClick={this.handleDictation}>🔴</span> </div>
           </div>
         </div>
       </div>
@@ -155,5 +179,8 @@ class MessagePage extends React.Component{
   }
 
 }
+const options = {
+  autoStart: false
+}
 
-export default withRouter(MessagePage);
+export default SpeechRecognition(options)(withRouter(MessagePage));

@@ -298,3 +298,10 @@ box-sizing: border-box;
 .visible-url-bar button:hover{
   background-color: #999999;
 }
+
+.hide-red-dot{
+  display: none;
+}
+.hide-microphone{
+  display: none;
+}

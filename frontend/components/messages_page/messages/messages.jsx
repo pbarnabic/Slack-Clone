@@ -84,10 +84,10 @@ class Messages extends React.Component{
         />
         <div className="orderedMessagesList">
           <ul>
+
             {messages}
           </ul>
           <div id="bottom-of-messages-list">
-
           </div>
         </div>
 
@@ -122,5 +122,6 @@ function strToDate(str){
 
   return answerHrs.toString() + ":" + min + " " + tod;
 }
+
 
 export default Messages;
