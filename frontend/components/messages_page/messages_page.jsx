@@ -17,10 +17,11 @@ class MessagePage extends React.Component{
   constructor(props){
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.state = {valueOfInput: ""};
+    this.state = {valueOfInput: "", showURLBar: "invisible-url-bar", valueOfURL:""};
     this.handleChange = this.handleChange.bind(this);
+    this.handleURLChange = this.handleURLChange.bind(this);
     this.changeToShow = this.changeToShow.bind(this);
-
+    this.revealURLBar = this.revealURLBar.bind(this);
   }
 
   componentDidMount(){
@@ -54,13 +55,36 @@ class MessagePage extends React.Component{
       valueOfInput: e.target.value
     });
   }
+  handleURLChange(e){
+    this.setState({
+      valueOfURL: e.target.value
+    });
+  }
 
+  revealURLBar(){
+    if(this.state.showURLBar == "invisible-url-bar")
+      this.setState({
+        showURLBar: "visible-url-bar"
+      });
+    else{
+      this.setState({
+        showURLBar: "invisible-url-bar"
+      });
+    }
+  }
 
 
   handleSubmit(e){
     e.preventDefault();
-    this.props.createMessage({body: this.state.valueOfInput, channel_id: this.props.match.params.id});
+    this.props.createMessage({body: this.state.valueOfInput, channel_id: this.props.match.params.id, is_url: false});
     this.setState({valueOfInput: ""});
+  }
+
+  handleURLSubmit(e){
+    e.preventDefault();
+    this.props.createMessage({body: this.state.valueOfURL, channel_id: this.props.match.params.id, is_url: true});
+    this.setState({valueOfURL: ""});
+    this.revealURLBar();
   }
 
 
@@ -104,9 +128,18 @@ class MessagePage extends React.Component{
           <div id="message-history">
 
             <MessagesContainer channel_id={channel_id}/>
+            <div className={this.state.showURLBar}>
+              <span>Paste a URL and Hit Submit</span>
+              <form onSubmit={(e) => this.handleURLSubmit(e)}>
+                <input placeholder="URL" onChange={e => this.handleURLChange(e)} type="text" value={this.state.valueOfURL}/>
+                <button>Add Link</button>
+              </form>
+            </div>
           </div>
           <div id="chat-div">
-            <div className="chat-sub" id="plus-sign">+</div>
+            <div className="chat-sub" id="plus-sign" onClick={this.revealURLBar}>
+              +
+            </div>
             <div>
               <form onSubmit={(e) => this.handleSubmit(e)}>
                 <input placeholder="Message" id="chat-input" onChange={e => this.handleChange(e)} type="text" value={this.state.valueOfInput}/>

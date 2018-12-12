@@ -24,28 +24,53 @@ class Messages extends React.Component{
   render(){
 
     let messages = this.props.messages.map(message => {
-      return(
-        <li key={message.id}>
-          <div className="Received-Message-Box">
-            <div className="Received-Message-Box-left">
-              <img id="profile-pic-img" src={window.slack_profile_pic} />
-            </div>
-            <div className="Received-Message-Box-right">
-              <div className="Received-Message-Box-right-top">
-                <div className = "Recieved-Message-Box-right-top-name">
-                  {this.props.users[message.user_id].username}
+      if(message.is_url != true){
+        return(
+          <li key={message.id}>
+            <div className="Received-Message-Box">
+              <div className="Received-Message-Box-left">
+                <img id="profile-pic-img" src={window.slack_profile_pic} />
+              </div>
+              <div className="Received-Message-Box-right">
+                <div className="Received-Message-Box-right-top">
+                  <div className = "Recieved-Message-Box-right-top-name">
+                    {this.props.users[message.user_id].username}
+                  </div>
+                  <div className = "Recieved-Message-Box-right-top-time">
+                    {strToDate(message.created_at.slice(11,16))}
+                  </div>
                 </div>
-                <div className = "Recieved-Message-Box-right-top-time">
-                  {strToDate(message.created_at.slice(11,16))}
+                <div className="Received-Message-Box-right-bottom">
+                  {message.body}
                 </div>
               </div>
-              <div className="Received-Message-Box-right-bottom">
-                {message.body}
+            </div>
+          </li>
+        );
+      }else{
+        return(
+          <li key={message.id}>
+            <div className="Received-Message-Box">
+              <div className="Received-Message-Box-left">
+                <img id="profile-pic-img" src={window.slack_profile_pic} />
+              </div>
+              <div className="Received-Message-Box-right">
+                <div className="Received-Message-Box-right-top">
+                  <div className = "Recieved-Message-Box-right-top-name">
+                    {this.props.users[message.user_id].username}
+                  </div>
+                  <div className = "Recieved-Message-Box-right-top-time">
+                    {strToDate(message.created_at.slice(11,16))}
+                  </div>
+                </div>
+                <div className="Received-Message-Box-right-bottom">
+                  <a href={message.body} target="_blank">{message.body}</a>
+                </div>
               </div>
             </div>
-          </div>
-        </li>
-      );
+          </li>
+        );
+    }
 
 
     });
@@ -62,7 +87,7 @@ class Messages extends React.Component{
             {messages}
           </ul>
           <div id="bottom-of-messages-list">
-            
+
           </div>
         </div>
 

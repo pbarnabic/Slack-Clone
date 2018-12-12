@@ -204,6 +204,7 @@ box-sizing: border-box;
   padding-left: 25px;
   color: #a3a4a5;
   font-size: 12px;
+  font-weight: 700;
 }
 
 .hidden-users-dropdown{
@@ -235,4 +236,65 @@ box-sizing: border-box;
 .dropdown-users-list-item li{
   padding-top: 2%;
   padding-left: 5%;
+}
+
+.invisible-url-bar{
+  display: none;
+}
+.visible-url-bar{
+  font-family: NotoSansJP,Slack-Lato,appleLogo,sans-serif;
+  position: absolute;
+  border: 1px solid lavender;
+  width: 700px;
+  height: 100px;
+  top: 920px;
+  left: 250px;
+  border-radius: 7px;
+  font-size: 14px;
+  color: #333437;
+  background-color: #f9f9f9;
+}
+
+.visible-url-bar input{
+  width: 90%;
+  outline: none;
+  min-height: 44px;
+  height: 40px;
+  font-size: 16px;
+  font-family: NotoSansJP,Slack-Lato,appleLogo,sans-serif;
+  padding-left: 18px;
+  background-color: #f9f9f9;
+}
+.visible-url-bar span{
+  font-size: 19px;
+  font-family: NotoSansJP,Slack-Lato,appleLogo,sans-serif;
+  color: #333437;
+  display: inline-block;
+  padding-top: 18px;
+  padding-left: 18px;
+  font-style: italic;
+}
+
+.visible-url-bar form{
+  display: flex;
+  flex-direction: row;
+}
+
+.visible-url-bar button{
+  font-family: NotoSansJP,Slack-Lato,appleLogo,sans-serif;
+  background-color: #e8e8e8;
+  color: #5b5c5e;
+  padding: 4px;
+  border-radius: 6px;
+  font-size: 15px;
+  line-height: 1.5rem;
+  font-weight: 700;
+  border: none;
+  height: 48px;
+  margin-right: 7px;
+  width: 80px;
+}
+
+.visible-url-bar button:hover{
+  background-color: #999999;
 }
