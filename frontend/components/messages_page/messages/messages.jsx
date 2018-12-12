@@ -1,6 +1,7 @@
 import React from 'react';
 import {withRouter, Link} from 'react-router-dom';
 import {ActionCable} from 'react-actioncable-provider';
+
 class Messages extends React.Component{
 
   constructor(props){
@@ -61,6 +62,7 @@ class Messages extends React.Component{
             {messages}
           </ul>
           <div id="bottom-of-messages-list">
+            
           </div>
         </div>
 

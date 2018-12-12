@@ -140,6 +140,38 @@
 
 
 }
+
+@media only screen and (max-width: 1400px) {
+  .visible-recent-search-modal input{
+    width: 70vw;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .visible-recent-search-modal input{
+    width: 56vw;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .visible-recent-search-modal input{
+    width: 50vw;
+  }
+
+}
+@media only screen and (max-width: 560px) {
+  .visible-recent-search-modal input{
+    width: 37vw;
+  }
+
+}
+@media only screen and (max-width: 500px) {
+  .visible-recent-search-modal input{
+    width: 40vw;
+  }
+
+}
+
+
+
 .visible-recent-search-modal input:focus{
   outline: none;
 
@@ -158,15 +190,42 @@
   border-right: 1px #717274;
 
 }
-@media only screen and (max-width: 1185px) {
-  #recentSearchModal-searchBar input {
-    width: 40vw;
+#search-results-modal-search-results-search-bar input{
+  font-size: 18px;
+  font-family: NotoSansJP,Slack-Lato,appleLogo,sans-serif;
+  padding-left: 25px;
+  color: #333437;
+  margin-bottom: 14px;
+  width: 72vw;
+}
+
+@media only screen and (max-width: 1400px) {
+  #search-results-modal-search-results-search-bar input {
+    width: 65vw;
   }
 }
-@media only screen and (max-width: 400px) {
-  #recentSearchModal-searchBar input {
-    width: 100px;
+@media only screen and (max-width: 1000px) {
+  #search-results-modal-search-results-search-bar input {
+    width: 56vw;
   }
+}
+@media only screen and (max-width: 800px) {
+  #search-results-modal-search-results-search-bar input {
+    width: 50vw;
+  }
+
+}
+@media only screen and (max-width: 560px) {
+  #search-results-modal-search-results-search-bar input {
+    width: 37vw;
+  }
+
+}
+@media only screen and (max-width: 500px) {
+  #search-results-modal-search-results-search-bar input {
+    width: 40vw;
+  }
+
 }
 
 #recentSearchModal-searchBar{
@@ -244,14 +303,6 @@
   padding-top: 18px;
 }
 
-#search-results-modal-search-results-search-bar input{
-  font-size: 18px;
-  font-family: NotoSansJP,Slack-Lato,appleLogo,sans-serif;
-  padding-left: 25px;
-  color: #333437;
-  margin-bottom: 14px;
-  width: 75vw;
-}
 
 #search-results-modal-search-results-search-bar input:focus{
   outline: none;
