@@ -260,7 +260,7 @@ class Siri extends React.Component{
     let speech = new SpeechSynthesisUtterance();
     speech.text = "State the name of the DM you wish to switch to?"
     speechSynthesis.speak(speech);
-    setTimeout(this.props.startListening,3000);
+    setTimeout(this.props.startListening,4000);
     this.listening = true;
     this.setState({prompt:"State the name of the DM do you wish to switch to?", response: "",listening:true});
   }
