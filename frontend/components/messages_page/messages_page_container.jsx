@@ -1,13 +1,13 @@
 import {connect} from 'react-redux';
 import React from 'react';
 import { fetchChannels, fetchChannelInfo } from "../../actions/channel_actions";
-import {hideModal, showModal, showDMModal, hideDMModal,showRecentSearchModal,hideRecentSearchModal,showSearchResultsModal, hideSearchResultsModal} from '../../actions/modal_actions';
+import {hideModal, showModal, showDMModal, hideDMModal,showRecentSearchModal,hideRecentSearchModal,showSearchResultsModal, hideSearchResultsModal, showSiriModal, hideSiriModal} from '../../actions/modal_actions';
 import {createMessage} from '../../actions/conversation_actions';
 import { fetchDMs, fetchDMCandidates } from "../../actions/direct_message_actions";
 import MessagePage from "./messages_page";
 
 const mapStateToProps = (state, ownProps) => {
-  let channels = Object.values(state.entities.channels)
+  let channels = Object.values(state.entities.channels);
   const users = Object.values(state.entities.users);
   return{
 

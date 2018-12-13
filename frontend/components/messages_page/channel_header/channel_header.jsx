@@ -1,15 +1,26 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
+import SiriContainer from '../siri/siri_container'
 export default class MessagePage extends React.Component{
 
   constructor(props){
     super(props);
     this.state = {showUsers: "hidden-users-dropdown"};
     this.showUsersDropDown = this.showUsersDropDown.bind(this);
+    this.showSiriModal = this.showSiriModal.bind(this);
   }
 
   showUsersDropDown(){
     this.state.showUsers == "hidden-users-dropdown" ? this.setState({showUsers: "visible-users-dropdown"}) : this.setState({showUsers: "hidden-users-dropdown"});
+  }
+
+  showSiriModal(){
+    if (this.props.showSiriModal == "hidden-siri-modal"){
+      this.props.displaySiriModal()
+    }else{
+      this.props.abortListening();
+      this.props.hideSiriModal();
+    }
   }
 
   render(){
@@ -22,7 +33,7 @@ export default class MessagePage extends React.Component{
     let usersList = this.props.users.map(user =>{
       return(
         <div key={user.id} className="dropdown-users-list-item">
-            <img id="profile-pic-img" src={window.slack_profile_pic} />          
+            <img id="profile-pic-img" src={window.slack_profile_pic} />
             <li>{user.username}</li>
         </div>
       )
@@ -36,6 +47,8 @@ export default class MessagePage extends React.Component{
         </div>
         <div className="bottom-row-left-side-top-left">
           <span onClick={this.showUsersDropDown}>👤 {this.props.channel.userIds.length}</span>
+          <span id="siri-button-header" onClick={this.showSiriModal}>🗣</span>
+          <SiriContainer show={this.props.showSiriModal} resetTranscript={this.props.resetTranscript} transcript={this.props.transcript} startListening={this.props.startListening} stopListening={this.props.stopListening} abortListening={this.props.abortListening}/>
           <div className={this.state.showUsers}>
             <ul>
               {usersList}

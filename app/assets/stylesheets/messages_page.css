@@ -305,3 +305,45 @@ box-sizing: border-box;
 .hide-microphone{
   display: none;
 }
+
+#siri-button-header{
+  font-size: 15px;
+  padding-left: 4px;
+}
+
+.hidden-siri-modal{
+  display: none;
+}
+
+.visible-siri-modal{
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  left: 300px;
+  top: 200px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  border: 1px solid lavender;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: NotoSansJP,Slack-Lato,appleLogo,sans-serif;
+}
+
+.Siri-title-bar{
+  font-size: 28px;
+  color: #333437;
+  padding-left: 20px;
+  padding-top: 10px;
+}
+.Siri-Prompt{
+  font-size: 18px;
+  padding-left: 10px;
+  padding-bottom: 40px;
+}
+
+.Siri-Response{
+  font-size: 18px;
+  align-self: flex-end;
+  padding-bottom: 40px;
+}

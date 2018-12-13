@@ -6,6 +6,8 @@ export const SHOW_RECENT_SEARCH_MODAL = "SHOW_RECENT_SEARCH_MODAL";
 export const HIDE_RECENT_SEARCH_MODAL = "HIDE_RECENT_SEARCH_MODAL";
 export const SHOW_SEARCH_RESULTS_MODAL = "SHOW_SEARCH_RESULTS_MODAL";
 export const HIDE_SEARCH_RESULTS_MODAL = "HIDE_SEARCH_RESULTS_MODAL";
+export const HIDE_SIRI_MODAL = "HIDE_SIRI_MODAL";
+export const SHOW_SIRI_MODAL = "SHOW_SIRI_MODAL";
 
 export const showModal = () => dispatch => {
   dispatch({
@@ -52,5 +54,17 @@ export const showSearchResultsModal = () => dispatch => {
 export const hideSearchResultsModal = () => dispatch => {
   dispatch({
     type: HIDE_SEARCH_RESULTS_MODAL
+  })
+}
+
+export const showSiriModal = () => dispatch => {
+  dispatch({
+    type: SHOW_SIRI_MODAL
+  })
+}
+
+export const hideSiriModal = () => dispatch => {
+  dispatch({
+    type: HIDE_SIRI_MODAL
   })
 }

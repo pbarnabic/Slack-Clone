@@ -13,6 +13,7 @@ import SearchBarContainer from './channel_header/search_bar_container';
 import {ActionCable} from 'react-actioncable-provider';
 import SpeechRecognition from 'react-speech-recognition';
 
+
 class MessagePage extends React.Component{
 
   constructor(props){
@@ -137,7 +138,7 @@ class MessagePage extends React.Component{
             <div id="left-side-top-left">
               <RecentSearchesModalContainer show={this.props.showRecentSearchModal}/>
               <SearchResultsModalContainer show={this.props.showSearchResultsModal}/>
-              <ChannelHeaderContainer channel_id={channel_id}/>
+              <ChannelHeaderContainer channel_id={channel_id} startListening={this.props.startListening} resetTranscript={this.props.resetTranscript} transcript={this.props.transcript} stopListening={this.props.stopListening} abortListening={this.props.abortListening}/>
             </div>
             <div id="left-side-top-middle">
 
@@ -149,7 +150,6 @@ class MessagePage extends React.Component{
         </div>
         <div className="bottom" id="right-bottom">
           <div id="message-history">
-
             <MessagesContainer channel_id={channel_id}/>
             <div className={this.state.showURLBar}>
               <span>Paste a URL and Hit Submit</span>
