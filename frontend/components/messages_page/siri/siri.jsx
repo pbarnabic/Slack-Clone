@@ -22,6 +22,7 @@ class Siri extends React.Component{
     this.createActualMessage = this.createActualMessage.bind(this);
     this.isThisOkay = this.isThisOkay.bind(this);
     this.handleOkay = this.handleOkay.bind(this);
+    this.wut = this.wut.bind(this);
 
     this.findDMByUsername = this.findDMByUsername.bind(this);
     this.findChannelByName = this.findChannelByName.bind(this);
@@ -31,6 +32,15 @@ class Siri extends React.Component{
     this.body = "";
 
 
+  }
+
+  componentDidUpdate(prevProps,prevState){
+    if(prevProps.show != this.props.show){
+      this.phase = "greeting";
+      this.body = "";
+      this.listening = false;
+      this.setState({listening: false, prompt: "Some things you can say: 'Create Channel', 'Create Message','Switch to a different Channel' 'Switch to a DM'", response: ""});
+    }
   }
 
   handleClick(e){
@@ -92,17 +102,17 @@ class Siri extends React.Component{
 
   greeting(){
     let speech = new SpeechSynthesisUtterance();
-    speech.text = "Yee, haw. Welcome to Slack Siri. What can I do for you?"
+    speech.text = "Hey, sports fan. Welcome to Slack Siri. What can I do for you?"
     speechSynthesis.speak(speech);
     setTimeout(this.props.startListening,5000);
     this.listening = true;
-    this.setState({prompt:"Yee, haw. Welcome to Slack Siri. What can I do for you?"});
+    this.setState({prompt:"Hey, sports fan. Welcome to Slack Siri. What can I do for you?",listening:true});
   }
 
   level1Decision(){
     this.props.abortListening();
     let response = this.props.transcript;
-    this.setState({response: response});
+    this.setState({response: response,listening:false});
     this.props.resetTranscript();
     this.props.stopListening();
     switch (this.level1Return(response)) {
@@ -129,7 +139,8 @@ class Siri extends React.Component{
         this.switch();
         break;
       default:
-        //handle unknown
+        this.wut();
+        this.greeting();
     }
   }
 
@@ -160,7 +171,7 @@ class Siri extends React.Component{
   level2Decision(){
     this.props.abortListening();
     let response = this.props.transcript;
-    this.setState({response: response});
+    this.setState({response: response,listening:false});
     this.props.resetTranscript();
     this.props.stopListening();
     switch (this.level2Return(response)) {
@@ -181,7 +192,8 @@ class Siri extends React.Component{
         this.phase = "getUsername"
         break;
       default:
-        //handle unknown
+        this.phase == "create" ? this.create() : this.switch();
+
     }
   }
 
@@ -208,55 +220,55 @@ class Siri extends React.Component{
     let speech = new SpeechSynthesisUtterance();
     speech.text = "What do you want to Create?"
     speechSynthesis.speak(speech);
-    setTimeout(this.props.startListening,4000);
+    setTimeout(this.props.startListening,1000);
     this.listening = true;
-    this.setState({prompt:"What do you want to Create?", response: ""});
+    this.setState({prompt:"What do you want to Create?", response: "",listening:true});
   }
   switch(){
     let speech = new SpeechSynthesisUtterance();
     speech.text = "Do you want to switch to a channel or DM"
     speechSynthesis.speak(speech);
-    setTimeout(this.props.startListening,4000);
+    setTimeout(this.props.startListening,2000);
     this.listening = true;
-    this.setState({prompt:"Do you want to switch to a channel or DM?", response: ""});
+    this.setState({prompt:"Do you want to switch to a channel or DM?", response: "",listening:true});
   }
   createChannel(){
     let speech = new SpeechSynthesisUtterance();
     speech.text = "What do you want to call this new channel?"
     speechSynthesis.speak(speech);
-    setTimeout(this.props.startListening,4000);
+    setTimeout(this.props.startListening,2000);
     this.listening = true;
-    this.setState({prompt:"What do you want to call this new channel?", response: ""});
+    this.setState({prompt:"What do you want to call this new channel?", response: "",listening:true});
   }
   createMessage(){
     let speech = new SpeechSynthesisUtterance();
     speech.text = "What do you want this new message to say?"
     speechSynthesis.speak(speech);
-    setTimeout(this.props.startListening,4000);
+    setTimeout(this.props.startListening,2000);
     this.listening = true;
-    this.setState({prompt:"What do you want this new message to say?", response: ""});
+    this.setState({prompt:"What do you want this new message to say?", response: "",listening:true});
   }
   switchChannel(){
     let speech = new SpeechSynthesisUtterance();
     speech.text = "What is the name of the channel you wish to switch to?"
     speechSynthesis.speak(speech);
-    setTimeout(this.props.startListening,5000);
+    setTimeout(this.props.startListening,2000);
     this.listening = true;
-    this.setState({prompt:"What is the name of the channel you wish to switch to?", response: ""});
+    this.setState({prompt:"What is the name of the channel you wish to switch to?", response: "",listening:true});
   }
   switchDM(){
     let speech = new SpeechSynthesisUtterance();
-    speech.text = "State the name of the DM do you wish to switch to?"
+    speech.text = "State the name of the DM you wish to switch to?"
     speechSynthesis.speak(speech);
-    setTimeout(this.props.startListening,5000);
+    setTimeout(this.props.startListening,2500);
     this.listening = true;
-    this.setState({prompt:"State the name of the DM do you wish to switch to?", response: ""});
+    this.setState({prompt:"State the name of the DM do you wish to switch to?", response: "",listening:true});
   }
 
   retreiveInfo(){
     this.props.abortListening();
     let response = this.props.transcript;
-    this.setState({response: response});
+    this.setState({response: response,listening:false});
     this.props.resetTranscript();
     this.props.stopListening();
     return response;
@@ -271,15 +283,29 @@ class Siri extends React.Component{
   switchToDM(){
     let username = this.retreiveInfo();
     let id = this.findDMByUsername(username);
-    this.props.history.push(`/messages/${id}`);
-    this.restoreDefault();
+    this.setState({response: username});
+    if(id != undefined){
+      this.props.history.push(`/messages/${id}`);
+      this.restoreDefault();
+    }else{
+      this.wut();
+      this.phase = "getUsername"
+      this.switchDM();
+    }
+
   }
   switchToChannel(){
-    let username = this.retreiveInfo();
-    let id = this.findChannelByName(username);
-    this.props.history.push(`/messages/${id}`);
-    this.restoreDefault();
-
+    let name = this.retreiveInfo();
+    let id = this.findChannelByName(name);
+    this.setState({response: name});
+    if(id != undefined){
+      this.props.history.push(`/messages/${id}`);
+      this.restoreDefault();
+    }else{
+      this.wut();
+      setTimeout(this.switchChannel(),2000);
+      this.phase = "getChannelName"
+    }
   }
 
 
@@ -335,10 +361,20 @@ class Siri extends React.Component{
     this.props.changeToHide();
     this.phase = "greeting";
     this.body = "";
+    this.listening = false;
+  }
+
+  wut(){
+    let speech = new SpeechSynthesisUtterance();
+    speech.text = "I do not understand";
+    speechSynthesis.speak(speech);
   }
 
 
   render(){
+
+    let button;
+    this.state.listening ? button = "Done" : button = "Start";
 
     return(
       <div className={this.props.show}>
@@ -352,7 +388,7 @@ class Siri extends React.Component{
           {this.state.response}
         </div>
         <div className = "Siri-modal-button">
-          <button onClick={this.handleClick}>Speak</button>
+          <button onClick={this.handleClick}>{button}</button>
         </div>
       </div>
     )

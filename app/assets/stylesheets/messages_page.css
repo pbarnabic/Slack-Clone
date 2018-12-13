@@ -323,11 +323,12 @@ box-sizing: border-box;
   top: 200px;
   background-color: #f9f9f9;
   border-radius: 5px;
-  border: 1px solid lavender;
+  border: 4px solid lavender;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   font-family: NotoSansJP,Slack-Lato,appleLogo,sans-serif;
+  border-radius: 7px;
 }
 
 .Siri-title-bar{
@@ -335,6 +336,8 @@ box-sizing: border-box;
   color: #333437;
   padding-left: 20px;
   padding-top: 10px;
+  background-color: white;
+  border-bottom: 1px solid lavender;
 }
 .Siri-Prompt{
   font-size: 18px;
@@ -346,4 +349,30 @@ box-sizing: border-box;
   font-size: 18px;
   align-self: flex-end;
   padding-bottom: 40px;
+}
+
+.Siri-modal-button{
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid lavender;
+  background-color: white;
+}
+
+.Siri-modal-button button{
+  height: 40px;
+  width: 60px;
+  margin-bottom: 10px;
+  border-radius: 18px;
+  font-family: NotoSansJP,Slack-Lato,appleLogo,sans-serif;
+  background-color: #e8e8e8;
+  color: #5b5c5e;
+  font-size: 15px;
+  font-weight: 700;
+  margin-top: 10px;
+  outline: none;
+  border: 1px solid lavender;
+}
+
+.Siri-modal-button button:hover{
+  background-color: #999999;
 }
