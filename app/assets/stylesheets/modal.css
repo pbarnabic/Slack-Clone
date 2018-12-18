@@ -40,9 +40,8 @@
   padding: 5px;
   padding-top: 75px;
   background: white;
-  /* width: 385px; */
   height: 30vh;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .header-modal-list-of-channels span{
@@ -355,7 +354,7 @@
 #search-results-modal-search-results-messages{
   display: flex;
   flex-direction: column;
-  overflow-y: scroll;
+  overflow-y: auto;
   align-items: center;
 }
 

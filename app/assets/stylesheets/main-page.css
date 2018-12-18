@@ -22,7 +22,7 @@
     height: 100vh;
     background-color: #4D394B;
     min-width: 184px;
-    overflow-y: scroll;
+    overflow-y: auto;
   }
 
   .main-right{
@@ -99,6 +99,7 @@ input{
   border-top-left-radius: .3rem;
   border-bottom-left-radius: .3rem;
   color: #878789;
+  cursor: pointer;
 }
 #plus-sign:hover{
   background: #56b68b;
@@ -115,9 +116,12 @@ input{
 }
 
 .chat-sub{
-  /* padding: 13px; */
   font-size: 20px;
   background-color: white;
   color: #878789;
   padding-left: 1vw;
+}
+
+.chat-sub span{
+  cursor: pointer;
 }

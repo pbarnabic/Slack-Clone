@@ -52,6 +52,7 @@ a{
   padding-bottom: 1.7rem;
   padding-right: .6rem;
   width: 8rem;
+  cursor: pointer;
 }
 
 #get-started:hover{

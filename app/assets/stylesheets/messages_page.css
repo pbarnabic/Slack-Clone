@@ -31,6 +31,7 @@
 padding-left: 20px;
 color: #cac4c9;
 font-family: NotoSansJP,Slack-Lato,appleLogo,sans-serif;
+cursor: pointer;
 }
 #channels-title:hover{
   color: white;
@@ -49,10 +50,11 @@ font-family: NotoSansJP,Slack-Lato,appleLogo,sans-serif;
 
 #top-left{
   display: flex;
-flex-direction: column;
-padding-left: 10px;
-padding-top: 10px;
-box-sizing: border-box;
+  flex-direction: column;
+  padding-left: 10px;
+  padding-top: 10px;
+  box-sizing: border-box;
+cursor: pointer;
 }
 
 #top-left:hover{
@@ -123,6 +125,11 @@ box-sizing: border-box;
   padding-left: 10px;
   padding-top: 5px;
   width: 18vw;
+  cursor: pointer;
+}
+
+#search-bar-in-header:hover{
+  border-color: #717274;
 }
 
 .top-row-left-side-top-left{
@@ -206,6 +213,9 @@ box-sizing: border-box;
   font-size: 12px;
   font-weight: 700;
 }
+.bottom-row-left-side-top-left span{
+  cursor: pointer;
+}
 
 .hidden-users-dropdown{
   display: none;
@@ -214,7 +224,7 @@ box-sizing: border-box;
 .visible-users-dropdown{
   position: fixed;
   background-color: white;
-  overflow-y: scroll;
+  overflow-y: auto;
   width: 375px;
   height: 180px;
   font-size: 22px;
