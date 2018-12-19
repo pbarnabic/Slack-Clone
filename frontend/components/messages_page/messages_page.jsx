@@ -25,6 +25,7 @@ class MessagePage extends React.Component{
     this.changeToShow = this.changeToShow.bind(this);
     this.revealURLBar = this.revealURLBar.bind(this);
     this.handleDictation = this.handleDictation.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount(){
@@ -111,12 +112,17 @@ class MessagePage extends React.Component{
     this.revealURLBar();
   }
 
+  handleClick(e){
+    e.preventDefault();
+    this.props.changeToHide();
+  }
+
 
   render(){
     const channel_id = this.props.match.params.id;
     return(
 
-    <div className="main-page-outermost-div">
+    <div onClick={this.handleClick} className="main-page-outermost-div">
 
       <ChannelsModalContainer show={this.props.showChannelsModal}/>
       <DMsModalContainer show={this.props.showDMModal}/>

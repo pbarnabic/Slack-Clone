@@ -4,7 +4,8 @@ import {ActionCable} from 'react-actioncable-provider';
 
 class DMsList extends React.Component{
 
-  changeToShow(){
+  changeToShow(e){
+    e.stopPropagation();
     this.props.changeToShow();
   }
 
@@ -55,7 +56,7 @@ class DMsList extends React.Component{
         />
 
         <div id="channels-title-div">
-          <span id="channels-title" onClick={() => this.changeToShow()}>Direct Messages</span>
+          <span id="channels-title" onClick={(e) => this.changeToShow(e)}>Direct Messages</span>
         </div>
         <div className="dms-list-div">
           {channelList}

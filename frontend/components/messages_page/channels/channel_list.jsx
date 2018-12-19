@@ -3,7 +3,8 @@ import { withRouter, Link } from 'react-router-dom';
 
 class ChannelList extends React.Component{
 
-  changeToShow(){
+  changeToShow(e){
+    e.stopPropagation();
     this.props.changeToShow();
   }
 
@@ -37,7 +38,7 @@ class ChannelList extends React.Component{
     return(
       <ul>
         <div id="channels-title-div">
-          <span id="channels-title" onClick={() => this.changeToShow()}>Channels</span>
+          <span id="channels-title" onClick={(e) => this.changeToShow(e)}>Channels</span>
         </div>
         <div className="channels-list-div">
           {channelList}

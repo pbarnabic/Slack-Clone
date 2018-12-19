@@ -14,7 +14,8 @@ export default class MessagePage extends React.Component{
     this.state.showUsers == "hidden-users-dropdown" ? this.setState({showUsers: "visible-users-dropdown"}) : this.setState({showUsers: "hidden-users-dropdown"});
   }
 
-  showSiriModal(){
+  showSiriModal(e){
+    e.stopPropagation();
     if (this.props.showSiriModal == "hidden-siri-modal"){
       this.props.displaySiriModal()
     }else{
@@ -47,7 +48,7 @@ export default class MessagePage extends React.Component{
         </div>
         <div className="bottom-row-left-side-top-left">
           <span onClick={this.showUsersDropDown}>👤 {this.props.channel.userIds.length}</span>
-          <span id="siri-button-header" onClick={this.showSiriModal}>🗣</span>
+          <span id="siri-button-header" onClick={e => this.showSiriModal(e)}>🗣</span>
           <SiriContainer show={this.props.showSiriModal} resetTranscript={this.props.resetTranscript} transcript={this.props.transcript} startListening={this.props.startListening} stopListening={this.props.stopListening} abortListening={this.props.abortListening}/>
           <div className={this.state.showUsers}>
             <ul>
