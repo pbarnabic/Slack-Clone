@@ -80,7 +80,7 @@ class DMsModal extends React.Component{
             </div>
             <form onSubmit={() => this.handleSubmit()}>
               <div id="users-selected-from-search">{selectedUsers}</div>
-              <input id="new-channel-title-input" placeholder="Start a conversation" value={this.state.inputValue} onChange={(e) => this.handleInput(e)}/>
+              <input onClick={e => e.stopPropagation()} id="new-channel-title-input" placeholder="Start a conversation" value={this.state.inputValue} onChange={(e) => this.handleInput(e)}/>
               <button id="Go-Button" onClick={this.handleSubmit} text="Submit">Go</button>
             </form>
             <ul>

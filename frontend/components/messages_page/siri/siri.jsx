@@ -44,6 +44,7 @@ class Siri extends React.Component{
   }
 
   handleClick(e){
+    e.stopPropagation();
     if(! this.listening){
       switch (this.phase) {
         case "greeting":

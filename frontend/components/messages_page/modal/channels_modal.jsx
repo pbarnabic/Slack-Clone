@@ -61,7 +61,7 @@ class ChannelsModal extends React.Component{
 
 
             <form onSubmit={() => this.handleSubmit()}>
-              <input id="new-channel-title-input" placeholder="Create a New Channel" value={this.state.inputValue} onChange={(e) => this.handleInput(e)}/>
+              <input onClick={e => e.stopPropagation()} id="new-channel-title-input" placeholder="Create a New Channel" value={this.state.inputValue} onChange={(e) => this.handleInput(e)}/>
             </form>
           </div>
       </div>
