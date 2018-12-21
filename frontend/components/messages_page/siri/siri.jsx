@@ -40,6 +40,7 @@ class Siri extends React.Component{
       this.body = "";
       this.listening = false;
       this.setState({listening: false, prompt: "Some things you can say: 'Create Channel', 'Create Message','Switch to a different Channel' 'Switch to a DM'", response: ""});
+      this.props.resetTranscript();
     }
   }
 
@@ -375,7 +376,7 @@ class Siri extends React.Component{
   render(){
 
     let button;
-    this.state.listening ? button = "Done" : button = "Start";
+    this.state.listening || this.phase == "okay_to_send" ? button = "Done" : button = "Start";
 
     return(
       <div className={this.props.show}>

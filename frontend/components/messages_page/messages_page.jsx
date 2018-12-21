@@ -54,7 +54,8 @@ class MessagePage extends React.Component{
     this.props.fetchChannelInfo(this.props.match.params.id);
   }
 
-  handleDictation(){
+  handleDictation(e){
+    e.stopPropagation();
     if(this.state.listening == false){
       this.props.resetTranscript();
       this.props.startListening();
@@ -114,6 +115,7 @@ class MessagePage extends React.Component{
 
   handleClick(e){
     e.preventDefault();
+    this.props.stopListening();
     this.props.changeToHide();
   }
 
@@ -175,7 +177,7 @@ class MessagePage extends React.Component{
               </form>
           </div>
             <div className="chat-sub"><span className={this.state.microphone} onClick={this.handleDictation}>🎙</span> </div>
-            <div className="chat-sub"><span className={this.state.redDot} onClick={this.handleDictation}>🔴</span> </div>
+            <div className="chat-sub"><span className={this.state.redDot} onClick={e => this.handleDictation(e)}>🔴</span> </div>
           </div>
         </div>
       </div>
