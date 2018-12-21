@@ -56,11 +56,12 @@ class MessagePage extends React.Component{
 
   handleDictation(){
     if(this.state.listening == false){
+      this.props.resetTranscript();
       this.props.startListening();
       this.setState({listening: true, redDot: "show-red-dot", microphone: "hide-microphone"});
     }else{
       this.props.stopListening();
-      let transcript = this.props.finalTranscript;
+      let transcript = this.props.interimTranscript;
       let currentInput = this.state.valueOfInput;
       let newInput = currentInput + " " + transcript;
       this.setState({
@@ -69,7 +70,6 @@ class MessagePage extends React.Component{
         microphone: "show-microphone",
         listening: false
       });
-      this.props.resetTranscript();
     }
 
 
