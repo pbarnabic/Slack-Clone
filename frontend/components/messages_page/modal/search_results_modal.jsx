@@ -60,7 +60,7 @@ class SearchResultsModal extends React.Component{
     };
 
     return(
-      <div className={this.props.searchResultsModalShow}>
+      <div className={this.props.searchResultsModalShow} onClick={e => e.stopPropagation()}>
         <div id="search-results-modal-search-results-search-bar">
           <span>      🔍</span>
           <form onSubmit={this.handleSubmit}>

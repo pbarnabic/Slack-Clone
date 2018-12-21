@@ -61,11 +61,11 @@ class RecentSearchesModal extends React.Component{
 
     return(
 
-      <div className={this.props.recentSearchesModalShow} id="recentSearchModal" >
+      <div className={this.props.recentSearchesModalShow} id="recentSearchModal" onClick={e => e.stopPropagation()} >
         <div id="recentSearchModal-searchBar">
           <div id="recentSearchModal-searchBar-input">
             <form onSubmit={this.handleSubmit}>
-              <input type="text" placeholder="🔍     Search" onChange={this.handleInput} value={this.state.inputValue}/>
+              <input type="text" placeholder="🔍     Search" onChange={this.handleInput} value={this.state.inputValue} />
             </form>
           </div>
           <div id="recentSearchModal-searchBar-buttons">
