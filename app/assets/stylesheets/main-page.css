@@ -24,12 +24,12 @@
     min-width: 184px;
     overflow-y: auto;
   }
-
+  /*Down to 614px Wide  */
   .main-right{
     display: flex;
     flex-direction: column;
     height: 100vh;
-    width: 83vw;
+    /* width: 83vw; */
     background-color: white;
   }
 
