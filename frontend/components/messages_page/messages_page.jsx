@@ -108,6 +108,7 @@ class MessagePage extends React.Component{
 
   handleURLSubmit(e){
     e.preventDefault();
+    e.stopPropagation();
     this.props.createMessage({body: this.state.valueOfURL, channel_id: this.props.match.params.id, is_url: true});
     this.setState({valueOfURL: ""});
     this.revealURLBar();
@@ -163,7 +164,7 @@ class MessagePage extends React.Component{
               <span>Paste a URL and Hit Submit</span>
               <form onSubmit={(e) => this.handleURLSubmit(e)}>
                 <input placeholder="URL" onChange={e => this.handleURLChange(e)} type="text" value={this.state.valueOfURL}/>
-                <button>Add Link</button>
+                <button onClick={(e) => this.handleURLSubmit(e)}>Add Link</button>
               </form>
             </div>
           </div>

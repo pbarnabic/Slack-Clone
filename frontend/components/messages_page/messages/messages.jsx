@@ -64,7 +64,7 @@ class Messages extends React.Component{
                   </div>
                 </div>
                 <div className="Received-Message-Box-right-bottom">
-                  <a href={message.body} target="_blank">{message.body}</a>
+                  <a href={message.body} target="_blank" onClick={e => e.stopPropagation()}>{message.body}</a>
                 </div>
               </div>
             </div>
