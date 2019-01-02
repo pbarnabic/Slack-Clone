@@ -16,12 +16,12 @@ class Api::DirectMessagesController < ApplicationController
     @channel.is_direct_message = true
 
     if @channel.save
-
       @users.each do |user|
         channel_membership = ChannelMembership.new(user_id: user.id, channel_id: @channel.id)
         if channel_membership.save
           next
         else
+
           render json: channel_membership.errors.full_messages, status: 422
         end
       end

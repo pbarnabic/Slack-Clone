@@ -18,8 +18,8 @@ class DMsModal extends React.Component{
     }
   }
 
-  aggregateDMUsers(user){
-    return () => {
+  aggregateDMUsers(e,user){
+    e.stopPropagation();
 
     let newArr = this.state.users;
     newArr.push(user.id);
@@ -27,7 +27,7 @@ class DMsModal extends React.Component{
     sel.push(user);
 
     this.setState({inputValue: "", users: newArr, selected: sel});
-  };
+
   }
 
   handleInput(e){
@@ -40,7 +40,8 @@ class DMsModal extends React.Component{
     });
   }
 
-  handleSubmit(){
+  handleSubmit(e){
+    e.stopPropagation();
     this.props.createDirectMessage({channel: {user_ids: this.state.users}}).then(response => this.props.history.push(`/messages/${response.dms.id}`)).then(() => this.props.changeToHide());
     this.props.changeToHide();
     this.setState({inputValue: "", users: [], searchResults: this.props.dmCandidates, selected: []});
@@ -51,7 +52,7 @@ class DMsModal extends React.Component{
     const dmCandidates = this.state.searchResults.map(user => {
 
         return(
-          <li key={user.id} className="channels-modal-list-item" onClick={this.aggregateDMUsers(user)}>
+          <li key={user.id} className="channels-modal-list-item" onClick={e => this.aggregateDMUsers(e,user)}>
             {user.username}
           </li>
       );
@@ -78,10 +79,10 @@ class DMsModal extends React.Component{
               <br/>
               <br/>
             </div>
-            <form onSubmit={() => this.handleSubmit()}>
+            <form onSubmit={(e) => this.handleSubmit(e)}>
               <div id="users-selected-from-search">{selectedUsers}</div>
               <input onClick={e => e.stopPropagation()} id="new-channel-title-input" placeholder="Start a conversation" value={this.state.inputValue} onChange={(e) => this.handleInput(e)}/>
-              <button id="Go-Button" onClick={this.handleSubmit} text="Submit">Go</button>
+              <button id="Go-Button" onClick={(e) => this.handleSubmit(e)} text="Submit">Go</button>
             </form>
             <ul>
               {dmCandidates}
