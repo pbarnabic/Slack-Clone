@@ -18,7 +18,7 @@ Before, delving into messages and channels. Let's go over the Routes.
 
 Located in *app.jsx*, the App component utilizes the ```Switch``` component twice. The switch component ensures the first route matching the url is show and more importantly, only that route is shown. The first use of the ```Switch``` component is shown below.
 
-```
+```javascript
 <Switch>
       <Route exact path="/" component={GreetingContainer} />
       <Route exact path="/messages" component={MainPageContainer} />
@@ -33,7 +33,7 @@ The third route contained within this switch component is for viewing a channel 
 
 As was mentioned previously, *app.jsx* makes use of two ```Switch``` components. The second of which is utilized for auth.
 
-```
+```javascript
     <Switch>
       <AuthRoute exact path="/login" component={LogInFormContainer} />
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />
@@ -50,7 +50,7 @@ To join a channel, a new user clicks on the green *Join a Channel!* button locat
 
 It should be noted that this modal is similar to any other component found in this application, however it is always on the page. To prevent this modal from always being shown, its CSS className is dependent upon the modals slice of state, as are DM and Search Modals. A sample slice of state is shown below.
 
-```
+```javascript
 modals:
   recentSearchModal: "hidden-recent-search-modal"
   searchResultsModal: "hidden-search-results-modal"
@@ -77,7 +77,7 @@ When a user is a part of a channel, it is essential that they are capable of rec
 
 When a user joins a channel, they become subscribed to the Messages Channel located in the Rails backend. To ensure they are subscribed to the appropriate channel, thereby ensuring they do not receive messages they shouldn't, their subscription also involves the passing of a channel Id.
 
-```
+```jsx
   <ActionCable
           key={this.props.channel.id}
           channel = {{channel: 'MessagesChannel',conversation: this.props.channel.id}}
@@ -88,7 +88,7 @@ The above can be found in *Messages.jsx*, and shows how this subscription is est
 
 The code pertaining to the Messages Channel can be found in *app/channels/messages_channel.rb*. In it you will see a class, *Messages Channel*, with two instance methods. For my purposes, I only used subscribed, but it should be known that both are automatically generated when the command ```rails g channel MessagesChannel``` is used in the terminal, hence the second's presence. In the ```subscribed``` method, the appropriate channel is found using Active Record's find method and the id provided under the key of *conversation* that was defined when the user subcribed via the Action Cable Component. Once that channel is found, it is then streamed.
 
-```
+```ruby
 class MessagesChannel < ApplicationCable::Channel
   def subscribed
     conversation = Channel.find(params[:conversation])
@@ -101,7 +101,7 @@ Notice, up until this point we have only discussed how the front end listens for
 
 When a user submits a message via the input bar found on the Messages Page, *messages_page.jsx*, an ajax post request is made to *'api/messages'*. In the Messages Controller, the create method creates a message instance as it would with any other class, however, rather than rendering JSON back, it does the following.
 
-```
+```ruby
 if @message.save
      data = render :show
      MessagesChannel.broadcast_to channel, data
@@ -134,7 +134,7 @@ The implementation of Action Cable for the purposes of ensuring users know they 
 
 What this means for the Direct Messages Controller is that upon the successful creation and insertion of Channel Memberships to the new Direct Message, the data pertaining to this new DM is sent back via the broadcast method of the *ChatsChannel*, as shown below.
 
-```
+```ruby
 if channel_membership.save
 
   #here is where we will broadcast
