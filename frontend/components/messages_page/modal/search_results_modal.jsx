@@ -18,10 +18,15 @@ class SearchResultsModal extends React.Component{
     this.props.search(this.state.inputValue);
   }
 
+  componentDidUpdate(prevProps,prevState){
+    if (prevProps.searchResultsModalShow != this.props.searchResultsModalShow){
+      this.setState({inputValue: ""});
+    };
+  }
+
   handleClick(channel_id){
     this.props.changeToHide();
     this.props.history.push(`/messages/${channel_id}`);
-
   }
 
   handleInput(e){
