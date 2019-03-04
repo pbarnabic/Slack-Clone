@@ -28,6 +28,7 @@ class ChannelsModal extends React.Component{
 
   handleSubmit(){
     let channel_name = this.state.inputValue;
+    if(channel_name == "" || channel_name == " ") return;
     this.props.createChannel({channel_name: channel_name}).then(response => this.props.history.push(`/messages/${response.channel.id}`)).then(() => this.props.changeToHide());
   }
 
